@@ -1,8 +1,13 @@
 # ibexa-ddev-toolkit
 
+## Install ddev:
+--> https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/
+
+
+## Main usage:
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│ Main usage:                                                         │
 │ ddev-dxp-installer.sh <product> <version> <installation-directory>  │
 │ --> creates Ibexa DXP instance running as ddev project              │
 │ --> can be reached at https://<installation-directory>.ddev.site    │
