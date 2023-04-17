@@ -14,7 +14,11 @@ if [ $# -eq 0 ]
   then
     echo "┌─────────────────────────────────────────────────────────────────────┐"
     echo "│ Main usage:                                                         │"
-    echo "│ ddev-dxp-installer.sh <product> <version> <installation-directory>  │"
+    echo "│ ddev-dxp-installer.sh <product> <version> <directory> <config-file> │"
+    echo "│ <product>: content | experience | commerce                          │"
+    echo "│ <version>: composer version constraint (^3.3 -> latest 3.3)         |"
+    echo "│ <directory>: install directory and ddev project id                  |"
+    echo "│ <config-file> (optional) : config options                           |" 
     echo "│ --> creates Ibexa DXP instance running as ddev project              │"
     echo "│ --> can be reached at https://<installation-directory>.ddev.site    │"
     echo "├─────────────────────────────────────────────────────────────────────┤"
@@ -49,7 +53,6 @@ add-varnish() {
   
   ddev get reithor/ddev-varnish
   ddev restart
-  echo "add-varnish"
   exit
 }
 
@@ -60,8 +63,8 @@ add-redis() {
   echo "CACHE_DSN=redis:6379" >> .env.local
   
   ddev get ddev/ddev-redis
-  echo "# dxp-installer generated"
-  echo "maxmemory 9536870912" > .ddev/redis/redis.conf
+  echo "# dxp-installer generated" > .ddev/redis/redis.conf
+  echo "maxmemory 9536870912" >> .ddev/redis/redis.conf
   echo "maxmemory-policy volatile-lfu" >> .ddev/redis/redis.conf
   
   ddev restart
@@ -102,23 +105,60 @@ if [ $# -eq 1 ]
   esac
 fi
 
+if [ $# -eq 4 ]
+  then
+    config_file="$4"
+  else
+    config_file="default.config"
+fi
+
+if [ -f "$config_file" ]
+  then
+    # use config file if present
+    . $config_file
+  else
+    # ask for input
+    read -p "database_type [mariadb]: " database_type
+    database_type=${database_type:=mariadb}
+    
+    read -p "database_version [10.6]: " database_version
+    database_version=${database_version:=10.6}
+    
+    read -p "php_version [8.1]: " php_version
+    php_version=${php_version:=8.1}
+
+
+    read -p "use_profiler [1]: " use_profiler
+    use_profiler=${use_profiler:=1}
+fi
+
 mkdir $3
 cd $3
 
-ddev config --database=mariadb:10.4 --project-type=php --docroot=public --create-docroot --php-version 8.1
+serverVersion="$database_type-$database_version"
+database="$database_type:$database_version"
+
+ddev config --database="$database" --project-type=php --docroot=public --create-docroot --php-version "$php_version"
 ddev start
 ddev composer create -y ibexa/$1-skeleton:$2
-ddev composer require --dev symfony/profiler-pack
+if [ "$use_profiler" = "1" ]
+  then
+    ddev composer require --dev symfony/profiler-pack
+fi
 
 git init; git add . > /dev/null; git commit -m "init" > /dev/null;
 
 read -p "Database name [$1]: " dbname
 dbname=${dbname:-$1}
-echo "DATABASE_URL=mysql://root:root@db:3306/$dbname?serverVersion=mariadb-10.4.14&charset=utf8mb4" > .env.local
+if [ "$database_type" = "postgres" ]
+then
+    echo "DATABASE_URL=postgresql://db:db@db:5432/$dbname" > .env.local
+  else
+    echo "DATABASE_URL=mysql://root:root@db:3306/$dbname?$serverVersion&charset=utf8mb4" > .env.local
+fi
 
 ddev php bin/console ibexa:install
 ddev php bin/console ibexa:graphql:generate-schema
-
 ddev composer run post-install-cmd
 
 echo "Done."
