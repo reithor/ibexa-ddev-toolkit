@@ -102,12 +102,12 @@ if [ $# -eq 1 ]
   esac
 fi
 
-composer create ibexa/$1-skeleton $3 $2 --no-install 
+mkdir $3
 cd $3
 
-ddev config --docroot=public --database=mariadb:10.4
+ddev config --database=mariadb:10.4 --project-type=php --docroot=public --create-docroot --php-version 8.1
 ddev start
-ddev composer update
+ddev composer create -y ibexa/$1-skeleton:$2
 ddev composer require --dev symfony/profiler-pack
 
 git init; git add . > /dev/null; git commit -m "init" > /dev/null;
