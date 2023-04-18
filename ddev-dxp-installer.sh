@@ -109,7 +109,7 @@ if [ $# -eq 4 ]
   then
     config_file="$4"
   else
-    config_file="default.config"
+    config_file="$( dirname -- "$0"; )/default.config" 
 fi
 
 if [ -f "$config_file" ]
