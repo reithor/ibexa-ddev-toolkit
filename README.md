@@ -22,6 +22,7 @@
 │ ../ddev-dxp-installer.sh add-redis                                  │
 │ ../ddev-dxp-installer.sh add-elastic                                │
 │ ../ddev-dxp-installer.sh add-varnish                                │
+│ ../ddev-dxp-installer.sh add-solr                                   │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
