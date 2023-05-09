@@ -43,6 +43,18 @@ pre_check()
    fi
 }
 
+add-solr() {
+  echo "# " >> .env.local
+  echo "# dxp-installer generated" >> .env.local
+  echo "SEARCH_ENGINE=solr" >> .env.local
+  echo "SOLR_CORE=collection1" >> .env.local
+  echo "SOLR_DSN=http://solr:8983/solr" >> .env.local
+  ddev get reithor/ddev-ibexa-solr
+  ddev restart
+  ddev php bin/console ibexa:reindex
+  exit
+}
+
 add-varnish() {
   echo "# " >> .env.local
   echo "# dxp-installer generated" >> .env.local
@@ -89,7 +101,7 @@ add-elastic() {
 if [ $# -eq 1 ]
   then
   case $1 in
-  add-varnish | add-redis | add-elastic )
+  add-varnish | add-redis | add-elastic | add-solr )
     res=$(pre_check)
     if [[ ! -z "$res" ]]
       then
