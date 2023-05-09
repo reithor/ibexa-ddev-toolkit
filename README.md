@@ -9,11 +9,10 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │ Main usage:                                                         │
-│ ddev-dxp-installer.sh <product> <directory> <config-file> │
+│ ddev-dxp-installer.sh <product> <directory> <config-file>           │
 │ <product>: content | experience | commerce                          │
-│ <version>: composer version constraint (^3.3 -> latest 3.3)         |
 │ <directory>: install directory and ddev project id                  |
-│ <config-file> (optional) : config options (see below)                           |
+│ <config-file> (optional) : config options (see below)               |
 │ --> creates Ibexa DXP instance running as ddev project              │
 │ --> can be reached at https://<installation-directory>.ddev.site    │
 ├─────────────────────────────────────────────────────────────────────┤
