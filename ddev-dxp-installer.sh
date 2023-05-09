@@ -9,28 +9,33 @@
 #
 
 set -e
+help()
+{
+  echo "┌─────────────────────────────────────────────────────────────────────┐"
+  echo "│ Main usage:                                                         │"
+  echo "│ ddev-dxp-installer.sh <product> <version> <directory> <config-file> │"
+  echo "│ <product>: content | experience | commerce                          │"
+  echo "│ <version>: composer version constraint (^3.3 -> latest 3.3)         |"
+  echo "│ <directory>: install directory and ddev project id                  |"
+  echo "│ <config-file> (optional) : config options                           |"
+  echo "│ --> creates Ibexa DXP instance running as ddev project              │"
+  echo "│ --> can be reached at https://<installation-directory>.ddev.site    │"
+  echo "├─────────────────────────────────────────────────────────────────────┤"
+  echo "│                                                                     │"
+  echo "│ Add services (run in <installation-directory>) :                    │"
+  echo "│ ../ddev-dxp-installer.sh add-redis                                  │"
+  echo "│ ../ddev-dxp-installer.sh add-elastic                                │"
+  echo "│ ../ddev-dxp-installer.sh add-varnish                                │"
+  echo "│                                                                     │"
+  echo "└─────────────────────────────────────────────────────────────────────┘"
+  exit 1
+}
 
 if [ $# -eq 0 ]
   then
-    echo "┌─────────────────────────────────────────────────────────────────────┐"
-    echo "│ Main usage:                                                         │"
-    echo "│ ddev-dxp-installer.sh <product> <version> <directory> <config-file> │"
-    echo "│ <product>: content | experience | commerce                          │"
-    echo "│ <version>: composer version constraint (^3.3 -> latest 3.3)         |"
-    echo "│ <directory>: install directory and ddev project id                  |"
-    echo "│ <config-file> (optional) : config options                           |" 
-    echo "│ --> creates Ibexa DXP instance running as ddev project              │"
-    echo "│ --> can be reached at https://<installation-directory>.ddev.site    │"
-    echo "├─────────────────────────────────────────────────────────────────────┤"
-    echo "│                                                                     │"
-    echo "│ Add services (run in <installation-directory>) :                    │"
-    echo "│ ../ddev-dxp-installer.sh add-redis                                  │"
-    echo "│ ../ddev-dxp-installer.sh add-elastic                                │"
-    echo "│ ../ddev-dxp-installer.sh add-varnish                                │"
-    echo "│                                                                     │"
-    echo "└─────────────────────────────────────────────────────────────────────┘"
-    exit 1
+    help
 fi
+
 
 pre_check()
 {
@@ -52,7 +57,6 @@ add-solr() {
   ddev get reithor/ddev-ibexa-solr
   ddev restart
   ddev php bin/console ibexa:reindex
-  exit
 }
 
 add-varnish() {
@@ -65,7 +69,6 @@ add-varnish() {
   
   ddev get reithor/ddev-varnish
   ddev restart
-  exit
 }
 
 add-redis() {
@@ -81,7 +84,6 @@ add-redis() {
   
   ddev restart
   ddev php bin/console cache:clear
-  exit
 }
 
 add-elastic() {
@@ -95,73 +97,105 @@ add-elastic() {
   ddev php bin/console ibexa:elasticsearch:put-index-template
   ddev php bin/console ibexa:reindex
   ddev php bin/console cache:clear
-  exit
 }
 
-if [ $# -eq 1 ]
+# check arguments
+case $1 in
+# add functionality to existing install
+add-varnish | add-redis | add-elastic | add-solr )
+  res=$(pre_check)
+  if [[ ! -z "$res" ]]
+    then
+      eval "$1"
+      exit
+  fi
+  exit
+  ;;
+# initialize
+oss | content | experience | commerce )
+  if [ $# -eq 1 ]
+    then
+    echo "+++++ Target Directory Is Required +++++"
+    exit;
+  fi
+  ;;
+*)
+  echo "+++++ Unknown Option +++++"
+  help
+  exit
+  ;;
+esac
+
+if [ $# -eq 3 ]
   then
-  case $1 in
-  add-varnish | add-redis | add-elastic | add-solr )
-    res=$(pre_check)
-    if [[ ! -z "$res" ]]
-      then
-        eval "$1"
-    fi
-    exit
-    ;;
-  
-  *)
-    echo -n "unknown"
-    exit
-    ;;
-  esac
+    config_file="$3"
+  else
+    config_file="$( dirname -- "$0"; )/default.config"
 fi
 
-if [ $# -eq 4 ]
-  then
-    config_file="$4"
-  else
-    config_file="$( dirname -- "$0"; )/default.config" 
-fi
+# fallbacks
+release=~4.3
+database_type=mariadb
+database_version=10.6
+php_version=8.1
+require_profiler=0
+add_solr=0
+add_varnish=0
+add_redis=0
+add_elastic=0
 
 if [ -f "$config_file" ]
   then
     # use config file if present
+    # fallbacks will be overwritten !
     . $config_file
-  else
-    # ask for input
-    read -p "database_type [mariadb]: " database_type
-    database_type=${database_type:=mariadb}
-    
-    read -p "database_version [10.6]: " database_version
-    database_version=${database_version:=10.6}
-    
-    read -p "php_version [8.1]: " php_version
-    php_version=${php_version:=8.1}
-
-
-    read -p "use_profiler [1]: " use_profiler
-    use_profiler=${use_profiler:=1}
 fi
 
-mkdir $3
-cd $3
+read -p "release [$release]: " release_input
+release=${release_input:=$release}
+
+read -p "database_type [$database_type]: " database_type_input
+database_type=${database_type_input:=$database_type}
+
+read -p "database_version [$database_version]: " database_version_input
+database_version=${database_version_input:=$database_version}
+
+read -p "php_version [$php_version]: " php_version_input
+php_version=${php_version_input:=$php_version}
+
+read -p "require_profiler [$require_profiler]: " require_profiler_input
+require_profiler=${require_profiler_input:=$require_profiler}
+
+read -p "add_solr [$add_solr]: " add_solr_input
+add_solr=${add_solr_input:=$add_solr}
+
+read -p "add_varnish [$add_varnish]: " add_varnish_input
+add_varnish=${add_varnish_input:=$add_varnish}
+
+read -p "add_redis [$add_redis]: " add_redis_input
+add_redis=${add_redis_input:=$add_redis}
+
+read -p "add_elastic [$add_elastic]: " add_elastic_input
+add_elastic=${add_elastic_input:=$add_elastic}
+
+mkdir $2
+cd $2
 
 serverVersion="$database_type-$database_version"
 database="$database_type:$database_version"
 
 ddev config --database="$database" --project-type=php --docroot=public --create-docroot --php-version "$php_version"
 ddev start
-ddev composer create -y ibexa/$1-skeleton:$2
-if [ "$use_profiler" = "1" ]
+ddev composer create -y ibexa/$1-skeleton:$release
+
+if [ "$require_profiler" = "1" ]
   then
     ddev composer require --dev symfony/profiler-pack
 fi
 
 git init; git add . > /dev/null; git commit -m "init" > /dev/null;
 
-read -p "Database name [$1]: " dbname
-dbname=${dbname:-$1}
+dbname=$1
 if [ "$database_type" = "postgres" ]
 then
     echo "DATABASE_URL=postgresql://db:db@db:5432/$dbname" > .env.local
@@ -172,5 +206,32 @@ fi
 ddev php bin/console ibexa:install
 ddev php bin/console ibexa:graphql:generate-schema
 ddev composer run post-install-cmd
+
+
+# add components
+if [ "$add_elastic" -eq "1" ] && [ "$1" != "oss" ]
+  then
+    echo "Adding elastic search service"
+    add-elastic
+fi
+
+if [ "$add_solr" -eq "1" ]
+  then
+    echo "Adding solr service"
+    add-solr
+fi
+
+if [ "$add_varnish" -eq "1" ]
+  then
+    echo "Adding varnish service"
+    add-varnish
+fi
+
+if [ "$add_redis" -eq "1" ]
+  then
+    echo "Adding redis service"
+    add-redis
+fi
+
 
 echo "Done."
