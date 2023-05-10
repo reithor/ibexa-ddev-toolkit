@@ -9,16 +9,18 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │ Main usage:                                                         │
-│ ddev-dxp-installer.sh <product> <directory> <config-file> │
+│ ddev-dxp-installer.sh <product> <directory> <config-file>           │
 │ <product>: content | experience | commerce                          │
-│ <version>: composer version constraint (^3.3 -> latest 3.3)         |
 │ <directory>: install directory and ddev project id                  |
-│ <config-file> (optional) : config options (see below)                           |
+│ <config-file> (optional) : config options (see below)               |
+│ --> reads settings from default.config                              │
+│ --> asks for confirmation for every single option (list see below)  │
 │ --> creates Ibexa DXP instance running as ddev project              │
 │ --> can be reached at https://<installation-directory>.ddev.site    │
+│                                                                     │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│ Add services (run in <installation-directory>) :                    │
+│ Add services to existing instance (run in <installation-directory>) │
 │ ../ddev-dxp-installer.sh add-redis                                  │
 │ ../ddev-dxp-installer.sh add-elastic                                │
 │ ../ddev-dxp-installer.sh add-varnish                                │
@@ -27,14 +29,15 @@
 └─────────────────────────────────────────────────────────────────────┘
 
 # default config
-database_type=mariadb
+release: ~4.4       # latest 4.x
+database_type=mariadb # db settings
 database_version=10.6
-php_version=8.1
-require_profiler=0
-add_solr=0
-add_varnish=0
-add_redis=0
-add_elastic=0
+php_version=8.1     # php
+require_profiler=0  # require symfony/profiler-pack
+add_solr=0          # add solr search 
+add_varnish=0       # add varnish http cache 
+add_redis=0         # add redis persistence cache 
+add_elastic=0       # add elastic search
 
 ```
 
