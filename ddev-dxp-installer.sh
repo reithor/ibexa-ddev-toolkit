@@ -9,25 +9,33 @@
 #
 
 set -e
+
+__help="
+┌─────────────────────────────────────────────────────────────────────┐
+│ Main usage:                                                         │
+│ ddev-dxp-installer.sh <product> <project-directory> <config-file>   │
+│ <product>: content | experience | commerce                          │
+│ <project-directory>: install directory and ddev project id          |
+│ <config-file> (optional) : config options                           |
+│ --> reads settings from default.config                              │
+│ --> asks for confirmation for every single option (list see below)  │
+│ --> creates Ibexa DXP instance running as ddev project              │
+│ --> can be reached at https://<installation-directory>.ddev.site    │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│ Add services to existing instance (run in <project-directory>)      │
+│ ../ddev-dxp-installer.sh add-redis                                  │
+│ ../ddev-dxp-installer.sh add-elastic                                │
+│ ../ddev-dxp-installer.sh add-varnish                                │
+│ ../ddev-dxp-installer.sh add-solr                                   │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+"
+
 help()
 {
-  echo "┌─────────────────────────────────────────────────────────────────────┐"
-  echo "│ Main usage:                                                         │"
-  echo "│ ddev-dxp-installer.sh <product> <version> <directory> <config-file> │"
-  echo "│ <product>: content | experience | commerce                          │"
-  echo "│ <version>: composer version constraint (^3.3 -> latest 3.3)         |"
-  echo "│ <directory>: install directory and ddev project id                  |"
-  echo "│ <config-file> (optional) : config options                           |"
-  echo "│ --> creates Ibexa DXP instance running as ddev project              │"
-  echo "│ --> can be reached at https://<installation-directory>.ddev.site    │"
-  echo "├─────────────────────────────────────────────────────────────────────┤"
-  echo "│                                                                     │"
-  echo "│ Add services (run in <installation-directory>) :                    │"
-  echo "│ ../ddev-dxp-installer.sh add-redis                                  │"
-  echo "│ ../ddev-dxp-installer.sh add-elastic                                │"
-  echo "│ ../ddev-dxp-installer.sh add-varnish                                │"
-  echo "│                                                                     │"
-  echo "└─────────────────────────────────────────────────────────────────────┘"
+  echo "$__help"
   exit 1
 }
 

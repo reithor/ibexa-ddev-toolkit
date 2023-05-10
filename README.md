@@ -9,9 +9,9 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │ Main usage:                                                         │
-│ ddev-dxp-installer.sh <product> <directory> <config-file>           │
+│ ddev-dxp-installer.sh <product> <project-directory> <config-file>   │
 │ <product>: content | experience | commerce                          │
-│ <directory>: install directory and ddev project id                  |
+│ <project-directory>: install directory and ddev project id          |
 │ <config-file> (optional) : config options (see below)               |
 │ --> reads settings from default.config                              │
 │ --> asks for confirmation for every single option (list see below)  │
@@ -20,7 +20,7 @@
 │                                                                     │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│ Add services to existing instance (run in <installation-directory>) │
+│ Add services to existing instance (run in <project-directory>)      │
 │ ../ddev-dxp-installer.sh add-redis                                  │
 │ ../ddev-dxp-installer.sh add-elastic                                │
 │ ../ddev-dxp-installer.sh add-varnish                                │
