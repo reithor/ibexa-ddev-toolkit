@@ -25,12 +25,24 @@ __help="
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │ Add services to existing instance (run in <project-directory>)      │
-│ ../ddev-dxp-installer.sh add-redis                                  │
-│ ../ddev-dxp-installer.sh add-elastic                                │
-│ ../ddev-dxp-installer.sh add-varnish                                │
-│ ../ddev-dxp-installer.sh add-solr                                   │
+│ ../ddev-dxp-installer.sh add_redis                                  │
+│ ../ddev-dxp-installer.sh add_elastic                                │
+│ ../ddev-dxp-installer.sh add_varnish                                │
+│ ../ddev-dxp-installer.sh add_solr                                   │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
+
+# default config
+release: ~4.4       # latest 4.x
+database_type=mariadb # db settings
+database_version=10.6
+php_version=8.1     # php
+require_profiler=0  # require symfony/profiler-pack
+add_solr=0          # add solr search 
+add_varnish=0       # add varnish http cache 
+add_redis=0         # add redis persistence cache 
+add_elastic=0       # add elastic search
+
 "
 
 help()
@@ -56,7 +68,7 @@ pre_check()
    fi
 }
 
-add-solr() {
+add_solr() {
   echo "# " >> .env.local
   echo "# dxp-installer generated" >> .env.local
   echo "SEARCH_ENGINE=solr" >> .env.local
@@ -67,7 +79,7 @@ add-solr() {
   ddev php bin/console ibexa:reindex
 }
 
-add-varnish() {
+add_varnish() {
   echo "# " >> .env.local
   echo "# dxp-installer generated" >> .env.local
   echo "TRUSTED_PROXIES=REMOTE_ADDR" >> .env.local
@@ -79,7 +91,7 @@ add-varnish() {
   ddev restart
 }
 
-add-redis() {
+add_redis() {
   echo "# " >> .env.local
   echo "# dxp-installer generated" >> .env.local
   echo "CACHE_POOL=cache.redis" >> .env.local
@@ -94,7 +106,7 @@ add-redis() {
   ddev php bin/console cache:clear
 }
 
-add-elastic() {
+add_elastic() {
   echo "# " >> .env.local
   echo "# dxp-installer generated" >> .env.local
   echo "SEARCH_ENGINE=elasticsearch" >> .env.local
@@ -110,7 +122,7 @@ add-elastic() {
 # check arguments
 case $1 in
 # add functionality to existing install
-add-varnish | add-redis | add-elastic | add-solr )
+add_varnish | add_redis | add_elastic | add_solr )
   res=$(pre_check)
   if [[ ! -z "$res" ]]
     then
@@ -220,25 +232,25 @@ ddev composer run post-install-cmd
 if [ "$add_elastic" -eq "1" ] && [ "$1" != "oss" ]
   then
     echo "Adding elastic search service"
-    add-elastic
+    add_elastic
 fi
 
 if [ "$add_solr" -eq "1" ]
   then
     echo "Adding solr service"
-    add-solr
+    add_solr
 fi
 
 if [ "$add_varnish" -eq "1" ]
   then
     echo "Adding varnish service"
-    add-varnish
+    add_varnish
 fi
 
 if [ "$add_redis" -eq "1" ]
   then
     echo "Adding redis service"
-    add-redis
+    add_redis
 fi
 
 

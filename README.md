@@ -21,10 +21,10 @@
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
 │ Add services to existing instance (run in <project-directory>)      │
-│ ../ddev-dxp-installer.sh add-redis                                  │
-│ ../ddev-dxp-installer.sh add-elastic                                │
-│ ../ddev-dxp-installer.sh add-varnish                                │
-│ ../ddev-dxp-installer.sh add-solr                                   │
+│ ../ddev-dxp-installer.sh add_redis                                  │
+│ ../ddev-dxp-installer.sh add_elastic                                │
+│ ../ddev-dxp-installer.sh add_varnish                                │
+│ ../ddev-dxp-installer.sh add_solr                                   │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 
