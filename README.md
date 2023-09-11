@@ -1,5 +1,8 @@
 # ibexa-ddev-toolkit
 
+Kick starter to create a clean Ibexa DXP project using ddev.
+It's perfectly what I need for my daily work - and will rarely be changed/improved in the future.  
+
 ## Install ddev:
 --> https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/
 
