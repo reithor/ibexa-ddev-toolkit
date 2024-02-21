@@ -206,7 +206,14 @@ database="$database_type:$database_version"
 
 ddev config --database="$database" --project-type=php --docroot=public --create-docroot --php-version "$php_version"
 ddev start
-ddev composer create -y ibexa/$1-skeleton:$release
+
+if [ "$php_version" = "8.3" ]
+  then
+    ddev composer create -y ibexa/$1-skeleton:$release --no-install
+    ddev composer update
+  else
+    ddev composer create -y ibexa/$1-skeleton:$release
+fi
 
 if [ "$require_profiler" = "1" ]
   then
