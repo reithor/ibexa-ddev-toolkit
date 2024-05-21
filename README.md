@@ -7,7 +7,7 @@ Kick starter to create a clean Ibexa DXP project using ddev.
 ### ddev installed on your computer
   (https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/)
 
-### When your are already using Composer
+### When your are already using Composer:
 (and have `~/.composer/auth.json`)
 ```
 # Add composer auth.json to ddev:
