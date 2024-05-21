@@ -20,8 +20,8 @@ Kick starter to create a clean Ibexa DXP project using ddev.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                                                         │
-│ ddev-dxp-installer.sh <project-directory>                          │
+│                                                                     │
+│ ddev-dxp-installer.sh <project-directory>                           │
 │ <project-directory>: install directory and ddev project id          |
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
