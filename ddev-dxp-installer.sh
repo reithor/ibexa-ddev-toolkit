@@ -153,8 +153,12 @@ ddev php bin/console ibexa:install
 
 echo "Preparing Ibexa personalization data..."
 cp -r $SCRIPT_DIR/PersoMigrations/* src/Migrations/Ibexa/
-
 ddev php bin/console ibexa:migrations:migrate
+
+echo "Applying patches for Ibexa personalization"
+mkdir patch
+cp -r $SCRIPT_DIR/patch/* patch/
+patch -p1 -i patch/personalization.patch
 
 ddev php bin/console ibexa:graphql:generate-schema
 ddev composer run post-install-cmd

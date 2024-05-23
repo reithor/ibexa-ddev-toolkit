@@ -1,0 +1,51 @@
+Index: vendor/ibexa/personalization/src/lib/Value/Scenario/ProfileFilterSet.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vendor/ibexa/personalization/src/lib/Value/Scenario/ProfileFilterSet.php b/vendor/ibexa/personalization/src/lib/Value/Scenario/ProfileFilterSet.php
+--- a/vendor/ibexa/personalization/src/lib/Value/Scenario/ProfileFilterSet.php	
++++ b/vendor/ibexa/personalization/src/lib/Value/Scenario/ProfileFilterSet.php	(date 1716476504230)
+@@ -60,9 +60,9 @@
+     public static function fromArray(array $properties): self
+     {
+         return new self(
+-            $properties['excludeAlreadyPurchased'],
+-            $properties['excludeAlreadyConsumed'],
+-            $properties['excludeRepeatedRecommendations'],
++            $properties['excludeAlreadyPurchased'] ?? false,
++            $properties['excludeAlreadyConsumed'] ?? false,
++            $properties['excludeRepeatedRecommendations'] ?? null,
+             isset($properties['attributeBoost'])
+                 ? AttributeBoost::fromArray($properties['attributeBoost'])
+                 : null,
+Index: vendor/ibexa/personalization/src/lib/Value/Scenario/StandardFilterSet.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vendor/ibexa/personalization/src/lib/Value/Scenario/StandardFilterSet.php b/vendor/ibexa/personalization/src/lib/Value/Scenario/StandardFilterSet.php
+--- a/vendor/ibexa/personalization/src/lib/Value/Scenario/StandardFilterSet.php	
++++ b/vendor/ibexa/personalization/src/lib/Value/Scenario/StandardFilterSet.php	(date 1716476480307)
+@@ -116,14 +116,14 @@
+     public static function fromArray(array $properties): self
+     {
+         return new self(
+-            $properties['excludeContextItems'],
+-            $properties['excludeContextItemsCategories'],
+-            $properties['excludedCategories'],
++            $properties['excludeContextItems'] ?? false,
++            $properties['excludeContextItemsCategories'] ?? false,
++            $properties['excludedCategories'] ?? [],
+             $properties['excludeCheaperItems'] === self::YES,
+-            $properties['excludeItemsWithoutPrice'],
+-            $properties['excludeTopSellingResults'],
+-            $properties['minimalItemPrice'],
+-            $properties['excludeVariants']
++            $properties['excludeItemsWithoutPrice'] ?? false,
++            $properties['excludeTopSellingResults'] ?? false,
++            $properties['minimalItemPrice'] ?? null,
++            $properties['excludeVariants'] ?? null
+         );
+     }
+ 
