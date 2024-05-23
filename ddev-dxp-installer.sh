@@ -150,6 +150,12 @@ git init; git add . > /dev/null; git commit -m "init" > /dev/null;
 echo "DATABASE_URL=mysql://root:root@db:3306/experience-perso?$serverVersion&charset=utf8mb4" > .env.local
 
 ddev php bin/console ibexa:install
+
+echo "Preparing Ibexa personalization data..."
+cp -r $SCRIPT_DIR/PersoMigrations/* src/Migrations/Ibexa/
+
+ddev php bin/console ibexa:migrations:migrate
+
 ddev php bin/console ibexa:graphql:generate-schema
 ddev composer run post-install-cmd
 
@@ -179,10 +185,6 @@ if [ "$add_redis" -eq "1" ]
     add_redis
 fi
 
-echo "Preparing Ibexa personalization data..."
-
-cp -r $SCRIPT_DIR/PersoMigrations/* src/Migrations/Ibexa/
-
-ddev php bin/console ibexa:migrations:migrate
-
-echo "Done."
+echo "#############     Done!     ###########################"
+echo "Switch to $PWD and run 'ddev launch' to open the project in your browser !"
+echo "#######################################################"
