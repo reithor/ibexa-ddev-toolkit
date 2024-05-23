@@ -1,0 +1,26 @@
+- type: repeatable
+  mode: create
+  iterations: 50
+  steps:
+    - type: reference
+      mode: set
+      name: "ref__richtext###XXX i XXX###"
+      value: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0">
+        <title ezxhtml:level="2">FIT you,' said Alice, (she had grown up,' she said to herself. (Alice had been (Before she had gone through that day. 'No, no!' said the Cat. '--so long as there was no use in the way to fly up into..</title>
+        <para><link xlink:href="https://pl.wikipedia.org/wiki/###XXX i XXX###" xlink:show="none" xlink:title="ipsum">Alice, 'they're sure to happen,' she said these words her foot slipped, and in THAT direction,' the Cat again, sitting on a crimson velvet cushion; and, last of all the rest waited in silence. At.</link></para>
+        <para><link xlink:href="https://pl.wikipedia.org/wiki/###XXX i % 2 XXX###" xlink:show="none" xlink:title="reprehenderit">YOU must cross-examine THIS witness.' 'Well, if I shall see it written up somewhere.' Down, down, down. Would the fall NEVER come to the end: then stop.' These were the two creatures got so much at.</link></para>
+        <para><link xlink:href="https://pl.wikipedia.org/wiki/###XXX i % 3 XXX###" xlink:show="none" xlink:title="quia">I wonder if I like being that person, I'll come up: if not, I'll stay down here! It'll be no chance of getting her hands on her spectacles, and began to repeat it, but her voice close to the table.</link></para>
+        <para><link xlink:href="https://pl.wikipedia.org/wiki/###XXX i % 4 XXX###" xlink:show="none" xlink:title="veritatis">Twinkle, twinkle--"' Here the other side of WHAT? The other side will make you a present of everything I've said as yet.' 'A cheap sort of mixed flavour of cherry-tart, custard, pine-apple, roast.</link></para>
+        <para><link xlink:href="https://pl.wikipedia.org/wiki/###XXX i % 5 XXX###" xlink:show="none" xlink:title="ex">She felt very lonely and low-spirited. In a minute or two sobs choked his voice. 'Same as if she were looking up into the sky all the arches are gone from this morning,' said Alice in a solemn tone.</link></para>
+        <para><link xlink:href="https://pl.wikipedia.org/wiki/###XXX i % 6 XXX###" xlink:show="none" xlink:title="voluptatem">Tillie; and they all cheered. Alice thought to herself. 'I dare say there may be ONE.' 'One, indeed!' said the cook. The King laid his hand upon her arm, and timidly said 'Consider, my dear: she is.</link></para>
+        <para><link xlink:href="https://pl.wikipedia.org/wiki/###XXX i % 7 XXX###" xlink:show="none" xlink:title="sit">Gryphon. 'It's all his fancy, that: he hasn't got no business of MINE.' The Queen turned angrily away from her as hard as she spoke, but no result seemed to be afraid of it. Presently the Rabbit.</link></para>
+        <para><link xlink:href="https://pl.wikipedia.org/wiki/###XXX i % 8 XXX###" xlink:show="none" xlink:title="quia">So they sat down, and the Queen was close behind it was perfectly round, she found herself falling down a jar from one of the words have got altered.' 'It is a long argument with the next witness.'.</link></para>
+        <para><link xlink:href="https://pl.wikipedia.org/wiki/###XXX i % 9 XXX###" xlink:show="none" xlink:title="voluptatem">I believe.' 'Boots and shoes under the sea,' the Gryphon said to the beginning of the cupboards as she could. The next thing was to twist it up into the open air. 'IF I don't want YOU with us!"'.</link></para>
+        </section>
+
+-
+    type: reference
+    mode: save
+    filename: references/richtext_perso.yaml

@@ -1,0 +1,35 @@
+- type: repeatable
+  mode: create
+  iterations: 5
+  iteration_counter_starting_value: 0
+  steps:
+      - type: content
+        mode: create
+        metadata:
+            contentType: folder
+            mainTranslation: eng-GB
+            creatorId: 14
+            modificationDate: '2022-12-27T10:44:47+00:00'
+            publicationDate: '2022-12-27T10:44:47+00:00'
+            alwaysAvailable: false
+        location:
+            parentLocationId: 2
+            hidden: false
+            sortField: 1
+            sortOrder: 1
+            priority: 0
+        fields:
+            - fieldDefIdentifier: name
+              languageCode: eng-GB
+              value:  "another_folder_###XXX i XXX###"
+            - fieldDefIdentifier: short_name
+              languageCode: eng-GB
+              value: "another_test_folder_###XXX i XXX###"
+        references:
+            -   name: 'ref__folder###XXX i XXX###'
+                type: content_id
+
+-
+    type: reference
+    mode: save
+    filename: references/folders.yaml

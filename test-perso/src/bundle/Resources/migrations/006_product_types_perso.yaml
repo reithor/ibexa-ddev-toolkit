@@ -1,0 +1,371 @@
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: "laptop"
+        mainTranslation: eng-GB
+        nameSchema: '<name>'
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: "Laptop"
+    fields:
+        -   identifier: name
+            type: ezstring
+            required: true
+            translations:
+                eng-GB:
+                    name: Name
+        -   identifier: intro
+            type: ezrichtext
+            translations:
+                eng-GB:
+                    name: Intro
+                    description: ''
+            required: false
+            searchable: true
+            translatable: true
+        -   identifier: description
+            type: ezrichtext
+            translations:
+                eng-GB:
+                    name: Description
+                    description: ''
+            required: false
+            searchable: true
+            translatable: true
+        -   identifier: long_marketing_description
+            type: ezrichtext
+            translations:
+                eng-GB:
+                    name: Long marketing description
+                    description: ''
+            required: false
+            searchable: true
+            translatable: true
+        -   identifier: other_long_marketing_description
+            type: ezrichtext
+            translations:
+                eng-GB:
+                    name: Other Long marketing description
+                    description: ''
+            required: false
+            searchable: true
+            translatable: true
+        -
+            identifier: image
+            type: ezimageasset
+            required: true
+            translations:
+                eng-GB:
+                    name: Image 1
+                    description: ''
+            translatable: true
+            thumbnail: true
+        -   identifier: product_category
+            type: ibexa_taxonomy_entry_assignment
+            translations:
+                eng-GB:
+                    name: Product Category
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: false
+            category: ''
+            defaultValue:
+                taxonomy_entries_identifiers: [product_root]
+                taxonomy: product_categories
+            fieldSettings:
+                taxonomy: product_categories
+        -   identifier: specification
+            type: ibexa_product_specification
+            required: true
+            translatable: false
+            translations:
+                eng-GB:
+                    name: Specification
+            fieldSettings:
+                regions:
+                    - { region_identifier: germany, vat_category_identifier: standard }
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: processor, required: true, discriminator: true }
+                        - { attributeDefinition: memory, required: true, discriminator: true }
+                        - { attributeDefinition: max_memory, required: true, discriminator: true }
+                        - { attributeDefinition: memory_slots, required: true, discriminator: true }
+                        - { attributeDefinition: disk_size, required: true, discriminator: true }
+                        - { attributeDefinition: additional_drive_possible, required: false, discriminator: true }
+                        - { attributeDefinition: optical_drive_available, required: false, discriminator: true }
+                        - { attributeDefinition: touch_screen, required: false, discriminator: true }
+                        - { attributeDefinition: screen_type, required: true, discriminator: true }
+                        - { attributeDefinition: screen_resolution, required: true, discriminator: true }
+                        - { attributeDefinition: screen_refresh_rate, required: true, discriminator: false }
+                        - { attributeDefinition: screen_brightness, required: true, discriminator: false }
+                        - { attributeDefinition: graphic_card, required: true, discriminator: false }
+                        - { attributeDefinition: graphics_card_power, required: true, discriminator: false }
+                        - { attributeDefinition: graphics_card_memory, required: true, discriminator: false }
+                        - { attributeDefinition: camera, required: true, discriminator: false }
+                        - { attributeDefinition: battery_type, required: true, discriminator: false }
+                        - { attributeDefinition: operating_system, required: true, discriminator: false }
+                        - { attributeDefinition: usage_type, required: true, discriminator: false }
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: "pc"
+        mainTranslation: eng-GB
+        nameSchema: '<name>'
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: "PC"
+    fields:
+        -   identifier: name
+            type: ezstring
+            required: true
+            translations:
+                eng-GB:
+                    name: Name
+        -   identifier: intro
+            type: ezrichtext
+            translations:
+                eng-GB:
+                    name: Intro
+                    description: ''
+            required: false
+            searchable: true
+            translatable: true
+        -   identifier: description
+            type: ezrichtext
+            translations:
+                eng-GB:
+                    name: Description
+                    description: ''
+            required: false
+            searchable: true
+            translatable: true
+        -   identifier: long_marketing_description
+            type: ezrichtext
+            translations:
+                eng-GB:
+                    name: Long marketing description
+                    description: ''
+            required: false
+            searchable: true
+            translatable: true
+        -   identifier: other_long_marketing_description
+            type: ezrichtext
+            translations:
+                eng-GB:
+                    name: Other Long marketing description
+                    description: ''
+            required: false
+            searchable: true
+            translatable: true
+        -
+            identifier: image
+            type: ezimageasset
+            required: true
+            translations:
+                eng-GB:
+                    name: Image 1
+                    description: ''
+            translatable: true
+            thumbnail: true
+        -   identifier: product_category
+            type: ibexa_taxonomy_entry_assignment
+            translations:
+                eng-GB:
+                    name: Product Category
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: false
+            category: ''
+            defaultValue:
+                taxonomy_entries_identifiers: [product_root]
+                taxonomy: product_categories
+            fieldSettings:
+                taxonomy: product_categories
+        -   identifier: specification
+            type: ibexa_product_specification
+            required: true
+            translatable: false
+            translations:
+                eng-GB:
+                    name: Specification
+            fieldSettings:
+                regions:
+                    - { region_identifier: germany, vat_category_identifier: standard }
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: processor, required: true, discriminator: true }
+                        - { attributeDefinition: memory, required: true, discriminator: true }
+                        - { attributeDefinition: max_memory, required: true, discriminator: true }
+                        - { attributeDefinition: memory_slots, required: true, discriminator: true }
+                        - { attributeDefinition: disk_size, required: true, discriminator: true }
+                        - { attributeDefinition: additional_drive_possible, required: false, discriminator: true }
+                        - { attributeDefinition: optical_drive_available, required: false, discriminator: true }
+                        - { attributeDefinition: graphic_card, required: true, discriminator: false }
+                        - { attributeDefinition: graphics_card_power, required: true, discriminator: false }
+                        - { attributeDefinition: graphics_card_memory, required: true, discriminator: false }
+                        - { attributeDefinition: operating_system, required: true, discriminator: false }
+                        
+-   type: content_type
+    mode: create
+    metadata:
+      identifier: "mouse"
+      mainTranslation: eng-GB
+      nameSchema: '<name>'
+      contentTypeGroups:
+        - product
+      translations:
+        eng-GB:
+          name: "Mouse"
+    fields:
+      -   identifier: name
+          type: ezstring
+          required: true
+          translations:
+            eng-GB:
+              name: Name
+      -   identifier: description
+          type: ezrichtext
+          translations:
+            eng-GB:
+              name: Description
+              description: ''
+          required: false
+          searchable: true
+          translatable: true
+      -
+        identifier: main_image
+        type: ezimageasset
+        required: true
+        translations:
+          eng-GB:
+            name: Main image
+            description: ''
+        translatable: true
+        thumbnail: true
+      -
+        identifier: image
+        type: ezimageasset
+        required: true
+        translations:
+          eng-GB:
+            name: Image 1
+            description: ''
+        translatable: true
+        thumbnail: true
+      -   identifier: product_category
+          type: ibexa_taxonomy_entry_assignment
+          translations:
+            eng-GB:
+              name: Product Category
+          required: false
+          searchable: true
+          infoCollector: false
+          translatable: false
+          category: ''
+          defaultValue:
+            taxonomy_entries_identifiers: [product_root]
+            taxonomy: product_categories
+          fieldSettings:
+            taxonomy: product_categories
+      -   identifier: specification
+          type: ibexa_product_specification
+          required: true
+          translatable: false
+          translations:
+            eng-GB:
+              name: Specification
+          fieldSettings:
+            regions:
+              - { region_identifier: germany, vat_category_identifier: standard }
+            attributes_definitions:
+              dimensions:
+                - { attributeDefinition: mouse_type, required: true, discriminator: false }
+                - { attributeDefinition: mouse_has_trackball, required: true, discriminator: false }
+                - { attributeDefinition: mouse_number_of_buttons, required: true, discriminator: false }
+                - { attributeDefinition: mouse_weight, required: false, discriminator: false }
+                - { attributeDefinition: mouse_width, required: false, discriminator: false }
+
+-   type: content_type
+    mode: create
+    metadata:
+      identifier: "software"
+      mainTranslation: eng-GB
+      nameSchema: '<name>'
+      contentTypeGroups:
+        - product
+      translations:
+        eng-GB:
+          name: "Software"
+    fields:
+      -   identifier: name
+          type: ezstring
+          required: true
+          translations:
+            eng-GB:
+              name: Name
+      -   identifier: description
+          type: ezrichtext
+          translations:
+            eng-GB:
+              name: Description
+              description: ''
+          required: false
+          searchable: true
+          translatable: true
+      -
+        identifier: main_image
+        type: ezimageasset
+        required: true
+        translations:
+          eng-GB:
+            name: Main image
+            description: ''
+        translatable: true
+        thumbnail: true
+      -
+        identifier: image
+        type: ezimageasset
+        required: true
+        translations:
+          eng-GB:
+            name: Image 1
+            description: ''
+        translatable: true
+        thumbnail: true
+      -   identifier: product_category
+          type: ibexa_taxonomy_entry_assignment
+          translations:
+            eng-GB:
+              name: Product Category
+          required: false
+          searchable: true
+          infoCollector: false
+          translatable: false
+          category: ''
+          defaultValue:
+            taxonomy_entries_identifiers: [product_root]
+            taxonomy: product_categories
+          fieldSettings:
+            taxonomy: product_categories
+      -   identifier: specification
+          type: ibexa_product_specification
+          required: true
+          translatable: false
+          translations:
+            eng-GB:
+              name: Specification
+          fieldSettings:
+            is_virtual: true
+            regions:
+              - { region_identifier: germany, vat_category_identifier: standard }
+            attributes_definitions:
+              dimensions:
+                - { attributeDefinition: digital_format, required: false, discriminator: false }
+                - { attributeDefinition: can_be_used_offline, required: false, discriminator: false }

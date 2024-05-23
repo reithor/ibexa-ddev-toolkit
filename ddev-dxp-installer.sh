@@ -130,6 +130,8 @@ add_varnish=0
 add_redis=0
 add_elastic=0
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 mkdir $1
 cd $1
 
@@ -177,5 +179,9 @@ if [ "$add_redis" -eq "1" ]
     add_redis
 fi
 
+echo "Preparing Ibexa personalization data..."
+cp -r $SCRIPT_DIR/test-perso vendor/ibexa/test-perso
+cp -a vendor/ibexa/test-perso/src/bundle/Resources/migrations/. src/Migrations/Ibexa/migrations
+ddev php bin/console ibexa:migrations:migrate
 
 echo "Done."

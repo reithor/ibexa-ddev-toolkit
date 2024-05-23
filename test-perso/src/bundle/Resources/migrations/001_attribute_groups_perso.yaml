@@ -1,0 +1,23 @@
+-   type: attribute_group
+    mode: create
+    identifier: hardware
+    names:
+        eng-GB: Hardware
+
+-   type: attribute_group
+    mode: create
+    identifier: software
+    names:
+        eng-GB: Software
+
+-   type: attribute_group
+    mode: create
+    identifier: mouse_attributes
+    names:
+        eng-GB: Mouse attributes
+
+-   type: attribute_group
+    mode: create
+    identifier: virtual_attributes
+    names:
+        eng-GB: Virtual attributes
