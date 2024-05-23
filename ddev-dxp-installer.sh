@@ -181,10 +181,7 @@ fi
 
 echo "Preparing Ibexa personalization data..."
 
-IMG_DIR=vendor/ibexa/test-perso/src/bundle/Resources/images
-mkdir -p $IMG_DIR
-cp -a $SCRIPT_DIR/test-perso/src/bundle/Resources/images/. $IMG_DIR
-cp -a $SCRIPT_DIR/test-perso/src/bundle/Resources/migrations/. src/Migrations/Ibexa/migrations
+cp -r $SCRIPT_DIR/PersoMigrations/* src/Migrations/Ibexa/
 
 ddev php bin/console ibexa:migrations:migrate
 

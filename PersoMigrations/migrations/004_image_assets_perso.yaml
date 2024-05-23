@@ -40,7 +40,7 @@
                     fieldDefIdentifier: image
                     languageCode: eng-GB
                     value:
-                        path: '###XXX "vendor/ibexa/test-perso/src/bundle/Resources/images/laptop" ~  i % 2 ~ ".jpg" XXX###'
+                        path: '###XXX "src/Migrations/Ibexa/images/laptop" ~  i % 2 ~ ".jpg" XXX###'
                         fileName: laptop###XXX i XXX###.jpg
             references:
                -   name: 'ref__laptop_image_asset###XXX i XXX###'
@@ -89,7 +89,7 @@
                     fieldDefIdentifier: image
                     languageCode: eng-GB
                     value:
-                        path: '###XXX "vendor/ibexa/test-perso/src/bundle/Resources/images/mouse" ~  i % 2 ~ ".jpg" XXX###'
+                        path: '###XXX "src/Migrations/Ibexa/images/mouse" ~  i % 2 ~ ".jpg" XXX###'
                         fileName: mouse###XXX i XXX###.jpg
             references:
                -   name: 'ref__mouse_image_asset###XXX i XXX###'
@@ -137,7 +137,7 @@
                   fieldDefIdentifier: image
                   languageCode: eng-GB
                   value:
-                      path: '###XXX "vendor/ibexa/test-perso/src/bundle/Resources/images/virtual" ~  i % 2 ~ ".jpg" XXX###'
+                      path: '###XXX "src/Migrations/Ibexa/images/virtual" ~  i % 2 ~ ".jpg" XXX###'
                       fileName: virtual###XXX i XXX###.jpg
           references:
               -   name: 'ref__virtual_image_asset###XXX i XXX###'
