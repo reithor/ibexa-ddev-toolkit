@@ -1,0 +1,150 @@
+- type: repeatable
+  mode: create
+  iterations: 10
+  steps:
+        -
+            type: content
+            mode: create
+            metadata:
+                contentType: image
+                mainTranslation: eng-GB
+                creatorId: 14
+                modificationDate: '2003-08-12T13:37:37+00:00'
+                publicationDate: '2003-08-12T13:37:37+00:00'
+                remoteId: image_asset_laptop_###XXX i XXX###
+                alwaysAvailable: true
+                section:
+                    id: 3
+                    identifier: media
+            location:
+                parentLocationId: 51
+                locationRemoteId: location_test_image_asset_laptop_###XXX i XXX###
+                hidden: false
+                sortField: 9
+                sortOrder: 1
+                priority: 0
+            fields:
+                -
+                    fieldDefIdentifier: name
+                    languageCode: eng-GB
+                    value: Laptop###XXX i +1 XXX###
+                -
+                    fieldDefIdentifier: caption
+                    languageCode: eng-GB
+                    value: |
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0">
+                        <title ezxhtml:level="2">###XXX 'Laptop' ~ i XXX###</title>
+                        </section>
+                -
+                    fieldDefIdentifier: image
+                    languageCode: eng-GB
+                    value:
+                        path: '###XXX "src/Migrations/Ibexa/images/laptop" ~  i % 2 ~ ".jpg" XXX###'
+                        fileName: laptop###XXX i XXX###.jpg
+            references:
+               -   name: 'ref__laptop_image_asset###XXX i XXX###'
+                   type: content_id
+                   
+                   
+- type: repeatable
+  mode: create
+  iterations: 15
+  steps:
+        -
+            type: content
+            mode: create
+            metadata:
+                contentType: image
+                mainTranslation: eng-GB
+                creatorId: 14
+                modificationDate: '2003-08-12T13:37:37+00:00'
+                publicationDate: '2003-08-12T13:37:37+00:00'
+                remoteId: image_asset_mouse_###XXX i XXX###
+                alwaysAvailable: true
+                section:
+                    id: 3
+                    identifier: media
+            location:
+                parentLocationId: 51
+                locationRemoteId: location_test_image_asset_mouse_###XXX i XXX###
+                hidden: false
+                sortField: 9
+                sortOrder: 1
+                priority: 0
+            fields:
+                -
+                    fieldDefIdentifier: name
+                    languageCode: eng-GB
+                    value: Mouse###XXX i +1 XXX###
+                -
+                    fieldDefIdentifier: caption
+                    languageCode: eng-GB
+                    value: |
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0">
+                        <title ezxhtml:level="2">###XXX 'Mouse' ~ i XXX###</title>
+                        </section>
+                -
+                    fieldDefIdentifier: image
+                    languageCode: eng-GB
+                    value:
+                        path: '###XXX "src/Migrations/Ibexa/images/mouse" ~  i % 2 ~ ".jpg" XXX###'
+                        fileName: mouse###XXX i XXX###.jpg
+            references:
+               -   name: 'ref__mouse_image_asset###XXX i XXX###'
+                   type: content_id
+
+- type: repeatable
+  mode: create
+  iterations: 15
+  steps:
+      -
+          type: content
+          mode: create
+          metadata:
+              contentType: image
+              mainTranslation: eng-GB
+              creatorId: 14
+              modificationDate: '2003-08-12T13:37:37+00:00'
+              publicationDate: '2003-08-12T13:37:37+00:00'
+              remoteId: image_asset_virtual_###XXX i XXX###
+              alwaysAvailable: true
+              section:
+                  id: 3
+                  identifier: media
+          location:
+              parentLocationId: 51
+              locationRemoteId: location_test_image_asset_virtual_###XXX i XXX###
+              hidden: false
+              sortField: 9
+              sortOrder: 1
+              priority: 0
+          fields:
+              -
+                  fieldDefIdentifier: name
+                  languageCode: eng-GB
+                  value: Virtual###XXX i +1 XXX###
+              -
+                  fieldDefIdentifier: caption
+                  languageCode: eng-GB
+                  value: |
+                      <?xml version="1.0" encoding="UTF-8"?>
+                      <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0">
+                      <title ezxhtml:level="2">###XXX 'Virtual' ~ i XXX###</title>
+                      </section>
+              -
+                  fieldDefIdentifier: image
+                  languageCode: eng-GB
+                  value:
+                      path: '###XXX "src/Migrations/Ibexa/images/virtual" ~  i % 2 ~ ".jpg" XXX###'
+                      fileName: virtual###XXX i XXX###.jpg
+          references:
+              -   name: 'ref__virtual_image_asset###XXX i XXX###'
+                  type: content_id
+
+
+-
+    type: reference
+    mode: save
+    filename: references/imageassets.yaml

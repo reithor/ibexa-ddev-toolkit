@@ -1,0 +1,61 @@
+- { type: language, mode: create, metadata: { languageCode: afr-AF, name: Afrikaans, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: alb-SQ, name: Albanian, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: ara-AR, name: Arabic, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: aze-AZ, name: Azerbaijani, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: cha-CH, name: Chamorro, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: chi-ZH, name: Chinese, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: cze-CS, name: Czech, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: dan-DA, name: Danish, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: dut-NL, name: Dutch (Flemish), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: eng-US, name: English (United States), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: eng-AU, name: English (Australia), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: epo-EO, name: Esperanto, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: esp-ES, name: Spanish, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: esp-MX, name: Spanish (Mexico), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: est-ET, name: Estonian, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: fas-FA, name: Persian (Farsi), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: fin-FI, name: Finnish, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: fre-FR, name: French (France), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: fre-BE, name: French (Belgium), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: fre-CA, name: French (Canada), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: fre-CH, name: French (Switzerland), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: fre-LU, name: French (Luxembourg), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: geo-KA, name: Georgian, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: ger-DE, name: German (Germany), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: ger-AT, name: German (Austria), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: ger-CH, name: German (Switzerland), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: ger-LI, name: German (Liechtenstein), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: ger-LU, name: German (Luxembourg), enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: gle-GA, name: Irish, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: gla-GD, name: Scottish (Gaelic), enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: gre-EL, name: Greek, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: hin-HI, name: Hebrew, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: heb-HE, name: Hebrew, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: hrv-HR, name: Croatian, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: hun-HU, name: Hungarian, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: ind-ID, name: Indonesian, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: isl-IS, name: Icelandic, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: ita-IT, name: Italian, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: jpn-JA, name: Japanese, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: kor-KO, name: Korean, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: lat-LA, name: Latin, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: lav-LV, name: Latvian, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: lit-LT, name: Lithuanian, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: mao-MI, name: Maori (New Zealand), enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: may-MS, name: Malay, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: nor-NO, name: Norwegian, enabled: true } }
+- { type: language, mode: create, metadata: { languageCode: pol-PL, name: Polish, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: por-PT, name: Portuguese (Portugal), enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: por-BR, name: Portuguese (Brazil), enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: rum-RO, name: Romanian, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: slo-SK, name: Slovak, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: swe-SV, name: Swedish, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: bul-BG, name: Bulgarian, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: swa-SW, name: Swahili (Swahili), enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: tha-TH, name: Thai, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: tib-BO, name: Tibetan, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: tlh-TL, name: Klingon, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: tur-TR, name: Turkish, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: ukr-UK, name: Ukrainian, enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: wel-CY, name: Welsh (Cymraeg), enabled: true } }
+#- { type: language, mode: create, metadata: { languageCode: yid-YI, name: Yiddish, enabled: true } }

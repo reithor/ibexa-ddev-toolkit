@@ -1,0 +1,29 @@
+-
+    type: currency
+    mode: update
+    criteria:
+        type: field_value
+        field: code
+        value: USD
+        operator: '='
+    enabled: true
+
+-
+    type: currency
+    mode: update
+    criteria:
+        type: field_value
+        field: code
+        value: EUR
+        operator: '='
+    enabled: true
+
+-
+    type: currency
+    mode: update
+    criteria:
+        type: field_value
+        field: code
+        value: PLN
+        operator: '='
+    enabled: true

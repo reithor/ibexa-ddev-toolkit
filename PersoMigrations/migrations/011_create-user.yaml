@@ -1,0 +1,58 @@
+-
+    type: user
+    mode: create
+    metadata:
+        login: editor
+        email: editor@link.invalid
+        password: Passw0rd-42
+        enabled: true
+        mainLanguage: eng-GB
+        contentType: user
+    groups:
+        - 3c160cca19fb135f83bd02d911f04db2
+    fields:
+        -
+          fieldDefIdentifier: first_name
+          languageCode: eng-GB
+          value: editor
+        -
+          fieldDefIdentifier: last_name
+          languageCode: eng-GB
+          value: User
+        -
+          fieldDefIdentifier: signature
+          languageCode: eng-GB
+          value: null
+        -
+          fieldDefIdentifier: image
+          languageCode: eng-GB
+          value: null
+-
+    type: user
+    mode: create
+    metadata:
+        login: guest
+        email: guest@link.invalid
+        password: Passw0rd-42
+        enabled: true
+        mainLanguage: eng-GB
+        contentType: user
+    groups:
+        - 5f7f0bdb3381d6a461d8c29ff53d908f
+    fields:
+        -
+          fieldDefIdentifier: first_name
+          languageCode: eng-GB
+          value: guest
+        -
+          fieldDefIdentifier: last_name
+          languageCode: eng-GB
+          value: User
+        -
+          fieldDefIdentifier: signature
+          languageCode: eng-GB
+          value: null
+        -
+          fieldDefIdentifier: image
+          languageCode: eng-GB
+          value: null

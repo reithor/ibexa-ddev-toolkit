@@ -1,0 +1,334 @@
+-   type: attribute
+    mode: create
+    identifier: processor
+    attribute_type_identifier: selection
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Processor
+    options:
+        choices:
+            -  value: ProcessorType0
+               label: 
+                  "eng-GB": "AMD ProcessorType0"
+            -  value: ProcessorType1
+               label: 
+                  "eng-GB": "AMD ProcessorType1"
+            -  value: ProcessorType2
+               label: 
+                 "eng-GB": "AMD ProcessorType2"
+            -  value: ProcessorType3
+               label: 
+                  "eng-GB": "AMD ProcessorType3"
+            -  value: ProcessorType4
+               label: 
+                 "eng-GB": "AMD ProcessorType4"
+
+-   type: attribute
+    mode: create
+    identifier: memory
+    attribute_type_identifier: integer #MEASUREMENT
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: RAM
+
+-   type: attribute
+    mode: create
+    identifier: max_memory
+    attribute_type_identifier: integer #MEASUREMENT
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Max memory
+
+-   type: attribute
+    mode: create
+    identifier: memory_slots
+    attribute_type_identifier: integer
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: No. of memory slots
+
+-   type: attribute
+    mode: create
+    identifier: disk_size
+    attribute_type_identifier: integer
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Disk size
+
+-   type: attribute
+    mode: create
+    identifier: additional_drive_possible
+    attribute_type_identifier: checkbox
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Can have an additional disk?
+
+-   type: attribute
+    mode: create
+    identifier: optical_drive_available
+    attribute_type_identifier: checkbox
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Has optical drive available?
+
+-   type: attribute
+    mode: create
+    identifier: touch_screen
+    attribute_type_identifier: checkbox
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Has touch screen?
+
+-   type: attribute
+    mode: create
+    identifier: screen_type
+    attribute_type_identifier: selection
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Screen type
+    options:
+        choices:
+            -  value: ScreenType0
+               label: 
+                  "eng-GB": "ScreenType0"
+            -  value: ScreenType1
+               label: 
+                  "eng-GB": "ScreenType1"
+            -  value: ScreenType2
+               label: 
+                 "eng-GB": "ScreenType2"
+            -  value: ScreenType3
+               label: 
+                  "eng-GB": "ScreenType3"
+            -  value: ScreenType4
+               label: 
+                 "eng-GB": "ScreenType4"
+
+-   type: attribute
+    mode: create
+    identifier: screen_resolution
+    attribute_type_identifier: selection
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Screen resolution
+    options:
+        choices:
+            -  value: ScreenResolution0
+               label: 
+                  "eng-GB": "8192x4096"
+            -  value: ScreenResolution1
+               label: 
+                  "eng-GB": "800x600"
+            -  value: ScreenResolution2
+               label: 
+                 "eng-GB": "1920x1080"
+            -  value: ScreenResolution3
+               label: 
+                  "eng-GB": "2048x1152"
+            -  value: ScreenResolution4
+               label: 
+                 "eng-GB": "2048x1024"
+
+-   type: attribute
+    mode: create
+    identifier: screen_refresh_rate
+    attribute_type_identifier: integer #MEASUREMENT
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Screen refresh rate
+
+-   type: attribute
+    mode: create
+    identifier: screen_brightness
+    attribute_type_identifier: integer #MEASUREMENT
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Screen brightness
+
+-   type: attribute
+    mode: create
+    identifier: graphic_card
+    attribute_type_identifier: selection
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Graphics card
+    options:
+        choices:
+            -  value: Card0
+               label: 
+                  "eng-GB": "NVIDIA 1"
+            -  value: Card1
+               label: 
+                 "eng-GB": "RADEON 1"
+            -  value: Card2
+               label: 
+                  "eng-GB": "NVIDIA 2"
+            -  value: Card3
+               label: 
+                 "eng-GB": "RADEON 2"
+            -  value: Card4
+               label: 
+                  "eng-GB": "NVIDIA 3"
+
+-   type: attribute
+    mode: create
+    identifier: graphics_card_power
+    attribute_type_identifier: integer #MEASUREMENT
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Graphics card power
+
+-   type: attribute
+    mode: create
+    identifier: graphics_card_memory
+    attribute_type_identifier: integer #MEASUREMENT
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Graphics card memory
+
+-   type: attribute
+    mode: create
+    identifier: camera
+    attribute_type_identifier: integer #MEASUREMENT
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Camera
+
+-   type: attribute
+    mode: create
+    identifier: battery_type
+    attribute_type_identifier: selection
+    attribute_group_identifier: hardware
+    names:
+        eng-GB: Battery type
+    options:
+        choices:
+            -  value: Battery0
+               label: 
+                  "eng-GB": "SomeBattery"
+            -  value: Battery1
+               label: 
+                 "eng-GB": "Other Battery"
+            -  value: Battery2
+               label: 
+                  "eng-GB": "Yet Another Battery"
+            -  value: Battery3
+               label: 
+                 "eng-GB": "Serious Battery"
+            -  value: Battery4
+               label: 
+                  "eng-GB": "Funny Battery"
+
+-   type: attribute
+    mode: create
+    identifier: operating_system
+    attribute_type_identifier: selection
+    attribute_group_identifier: software
+    names:
+        eng-GB: Operating system
+    options:
+        choices:
+            -  value: system0
+               label: 
+                  "eng-GB": "Windows 11"
+            -  value: system1
+               label: 
+                 "eng-GB": "Ubuntu"
+            -  value: system2
+               label: 
+                  "eng-GB": "OSX"
+            -  value: system3
+               label: 
+                 "eng-GB": "Windows 7"
+            -  value: system4
+               label: 
+                  "eng-GB": "Debian 10"
+
+-   type: attribute
+    mode: create
+    identifier: usage_type
+    attribute_type_identifier: selection
+    attribute_group_identifier: software
+    names:
+        eng-GB: Usage type
+    options:
+        choices:
+            -  value: usage_type0
+               label: 
+                  "eng-GB": "Business laptop"
+            -  value: usage_type1
+               label: 
+                 "eng-GB": "Gaming laptop"
+
+# Mouses
+-   type: attribute
+    mode: create
+    identifier: mouse_type
+    attribute_type_identifier: selection
+    attribute_group_identifier: mouse_attributes
+    names:
+        eng-GB: Mouse Type
+    options:
+        choices:
+            -  value: MouseType0
+               label: 
+                  "eng-GB": "Wireless"
+            -  value: MouseType1
+               label: 
+                  "eng-GB": "Wired"
+
+-   type: attribute
+    mode: create
+    identifier: mouse_has_trackball
+    attribute_type_identifier: checkbox
+    attribute_group_identifier: mouse_attributes
+    names:
+        eng-GB: "Has trackball?"
+
+-   type: attribute
+    mode: create
+    identifier: mouse_number_of_buttons
+    attribute_type_identifier: integer
+    attribute_group_identifier: mouse_attributes
+    names:
+        eng-GB: Number of buttons
+
+-   type: attribute
+    mode: create
+    identifier: mouse_weight
+    attribute_type_identifier: float
+    attribute_group_identifier: mouse_attributes
+    names:
+        eng-GB: Weight
+
+-   type: attribute
+    mode: create
+    identifier: mouse_width
+    attribute_type_identifier: float
+    attribute_group_identifier: mouse_attributes
+    names:
+        eng-GB: Width
+#Virtual
+-   type: attribute
+    mode: create
+    identifier: digital_format
+    attribute_type_identifier: selection
+    attribute_group_identifier: virtual_attributes
+    names:
+      eng-GB: Digital format
+    options:
+      choices:
+        -  value: format1
+           label:
+             "eng-GB": "Digital"
+        -  value: format2
+           label:
+             "eng-GB": "Electronic"
+
+-   type: attribute
+    mode: create
+    identifier: can_be_used_offline
+    attribute_type_identifier: checkbox
+    attribute_group_identifier: virtual_attributes
+    names:
+      eng-GB: Can the product be used offline?

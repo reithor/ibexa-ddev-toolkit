@@ -1,0 +1,105 @@
+- type: content
+  mode: create
+  metadata:
+    contentType: product_category_tag
+    mainTranslation: eng-GB
+    alwaysAvailable: true
+    section: { identifier: product_taxonomy }
+  location:
+    parentLocationRemoteId: product_category_taxonomy_folder_root
+    remoteId: 'pcs'
+  fields:
+    - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: 'pc' }
+    - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry_identifier: product_root, taxonomy: product_categories } }
+    - { fieldDefIdentifier: name, languageCode: eng-GB, value: 'PCs' }
+
+- type: content
+  mode: create
+  metadata:
+    contentType: product_category_tag
+    mainTranslation: eng-GB
+    alwaysAvailable: true
+    section: { identifier: product_taxonomy }
+  location:
+    parentLocationRemoteId: product_category_taxonomy_folder_root
+    remoteId: 'laptops'
+  fields:
+    - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: 'laptops' }
+    - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry_identifier: product_root, taxonomy: product_categories } }
+    - { fieldDefIdentifier: name, languageCode: eng-GB, value: 'Laptops' }
+    
+- type: content
+  mode: create
+  metadata:
+    contentType: product_category_tag
+    mainTranslation: eng-GB
+    alwaysAvailable: true
+    section: { identifier: product_taxonomy }
+  location:
+    parentLocationRemoteId: product_category_taxonomy_folder_root
+    remoteId: 'business_laptops'
+  fields:
+    - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: 'business_laptops' }
+    - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry_identifier: laptops, taxonomy: product_categories } }
+    - { fieldDefIdentifier: name, languageCode: eng-GB, value: 'Business laptops' }
+
+- type: content
+  mode: create
+  metadata:
+    contentType: product_category_tag
+    mainTranslation: eng-GB
+    alwaysAvailable: true
+    section: { identifier: product_taxonomy }
+  location:
+    parentLocationRemoteId: product_category_taxonomy_folder_root
+    remoteId: 'gaming_laptops'
+  fields:
+    - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: 'gaming_laptops' }
+    - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry_identifier: laptops, taxonomy: product_categories } }
+    - { fieldDefIdentifier: name, languageCode: eng-GB, value: 'Gaming laptops' }
+    
+- type: content
+  mode: create
+  metadata:
+    contentType: product_category_tag
+    mainTranslation: eng-GB
+    alwaysAvailable: true
+    section: { identifier: product_taxonomy }
+  location:
+    parentLocationRemoteId: product_category_taxonomy_folder_root
+    remoteId: 'accessories'
+  fields:
+    - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: 'accessories' }
+    - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry_identifier: product_root, taxonomy: product_categories } }
+    - { fieldDefIdentifier: name, languageCode: eng-GB, value: 'Accessories' }
+    
+- type: content
+  mode: create
+  metadata:
+    contentType: product_category_tag
+    mainTranslation: eng-GB
+    alwaysAvailable: true
+    section: { identifier: product_taxonomy }
+  location:
+    parentLocationRemoteId: product_category_taxonomy_folder_root
+    remoteId: 'mouse'
+  fields:
+    - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: 'mouse' }
+    - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry_identifier: accessories, taxonomy: product_categories } }
+    - { fieldDefIdentifier: name, languageCode: eng-GB, value: 'Mouse' }
+
+- type: content
+  mode: create
+  metadata:
+    contentType: product_category_tag
+    mainTranslation: eng-GB
+    alwaysAvailable: true
+    section: { identifier: product_taxonomy }
+  location:
+    parentLocationRemoteId: product_category_taxonomy_folder_root
+    remoteId: 'software'
+  fields:
+    - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: 'software' }
+    - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry_identifier: product_root, taxonomy: product_categories } }
+    - { fieldDefIdentifier: name, languageCode: eng-GB, value: 'Software' }
+

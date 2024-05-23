@@ -1,0 +1,417 @@
+- type: reference
+  mode: load
+  filename: references/imageassets.yaml
+
+- type: reference
+  mode: load
+  filename: references/richtext_perso.yaml
+
+- type: repeatable
+  mode: create
+  iterations: 35
+  iteration_counter_starting_value: 0
+  steps:
+    -   type: content
+        mode: create
+        metadata:
+          contentType: "laptop"
+          mainTranslation: eng-GB
+          creatorId: 14
+          remoteId: "business_laptop_###XXX i XXX###"
+          alwaysAvailable: true
+          section: 1
+        location:
+          parentLocationRemoteId: ibexa_product_catalog_root
+          locationRemoteId: "business_laptop_###XXX i XXX###"
+          hidden: false
+          sortField: 2
+          sortOrder: 0
+          priority: 0
+        fields:
+          -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: "Business laptop ###XXX i XXX###"
+          -
+            fieldDefIdentifier: intro
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 717 % 50 XXX###"
+          -
+            fieldDefIdentifier: description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 11 % 50 XXX###"
+          -
+            fieldDefIdentifier: long_marketing_description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 311 % 50 XXX###"
+          -
+            fieldDefIdentifier: other_long_marketing_description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 987 % 50 XXX###"
+
+          -   fieldDefIdentifier: image
+              languageCode: eng-GB
+              value:
+                destinationContentId: "reference:ref__laptop_image_asset###XXX i * 22 % 10 XXX###"
+                alternativeText: "Text"
+          -   fieldDefIdentifier: product_category
+              languageCode: eng-GB
+              value:
+                taxonomy_entries_identifiers:
+                  - 'business_laptops'
+                taxonomy: product_categories
+          -   fieldDefIdentifier: specification
+              languageCode: eng-GB
+              value:
+                code: "business_laptop_###XXX i XXX###"
+                attributes:
+                  processor: "ProcessorType###XXX i % 5 XXX###"
+                  memory: "###XXX i  + 100 XXX###"
+                  max_memory: "###XXX i  + 200 XXX###"
+                  memory_slots: "###XXX i  % 10 XXX###"
+                  disk_size: "###XXX i  + 1000 XXX###"
+                  additional_drive_possible: "###XXX i % 2 ? true : false XXX###"
+                  optical_drive_available: "###XXX i % 2 == 1 ? true : false XXX###"
+                  touch_screen: "###XXX i % 2 == 1 ? true : false XXX###"
+                  screen_type: "ScreenType###XXX i % 5 XXX###"
+                  screen_resolution: "ScreenResolution###XXX i % 5 XXX###"
+                  screen_refresh_rate: "###XXX i * 5 XXX###"
+                  screen_brightness: "###XXX i * 7 XXX###"
+                  graphic_card: "Card###XXX i % 5 XXX###"
+                  graphics_card_power: "###XXX i * 11 XXX###"
+                  graphics_card_memory: "###XXX i * 13 XXX###"
+                  camera: "###XXX i * 9 XXX###" #camera
+                  battery_type: "Battery###XXX i % 5 XXX###"
+                  operating_system: "system###XXX i % 5 XXX###"
+        references:
+          - name: 'ref_business_laptop_location_###XXX i XXX###'
+            type: location_id
+            
+- type: repeatable
+  mode: create
+  iterations: 50
+  iteration_counter_starting_value: 0
+  steps:
+    -   type: content
+        mode: create
+        metadata:
+          contentType: "laptop"
+          mainTranslation: eng-GB
+          creatorId: 14
+          remoteId: "gaming_laptop_###XXX i XXX###"
+          alwaysAvailable: true
+          section: 1
+        location:
+          parentLocationRemoteId: ibexa_product_catalog_root
+          locationRemoteId: "gaming_laptop_###XXX i XXX###"
+          hidden: false
+          sortField: 2
+          sortOrder: 0
+          priority: 0
+        fields:
+          -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: "Gaming laptop ###XXX i XXX###"
+          -
+            fieldDefIdentifier: intro
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 717 % 50 XXX###"
+          -
+            fieldDefIdentifier: description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 11 % 50 XXX###"
+          -
+            fieldDefIdentifier: long_marketing_description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 311 % 50 XXX###"
+          -
+            fieldDefIdentifier: other_long_marketing_description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 987 % 50 XXX###"
+
+          -   fieldDefIdentifier: image
+              languageCode: eng-GB
+              value:
+                destinationContentId: "reference:ref__laptop_image_asset###XXX i * 22 % 10 XXX###"
+                alternativeText: "Text"
+          -   fieldDefIdentifier: product_category
+              languageCode: eng-GB
+              value:
+                taxonomy_entries_identifiers:
+                  - 'gaming_laptops'
+                taxonomy: product_categories
+          -   fieldDefIdentifier: specification
+              languageCode: eng-GB
+              value:
+                code: "gaming_laptop_###XXX i XXX###"
+                attributes:
+                  processor: "ProcessorType###XXX i % 5 XXX###"
+                  memory: "###XXX i  + 100 XXX###"
+                  max_memory: "###XXX i  + 200 XXX###"
+                  memory_slots: "###XXX i  % 10 XXX###"
+                  disk_size: "###XXX i  + 1000 XXX###"
+                  additional_drive_possible: "###XXX i % 2 ? true : false XXX###"
+                  optical_drive_available: "###XXX i % 2 == 1 ? true : false XXX###"
+                  touch_screen: "###XXX i % 2 == 1 ? true : false XXX###"
+                  screen_type: "ScreenType###XXX i % 5 XXX###"
+                  screen_resolution: "ScreenResolution###XXX i % 5 XXX###"
+                  screen_refresh_rate: "###XXX i * 5 XXX###"
+                  screen_brightness: "###XXX i * 7 XXX###"
+                  graphic_card: "Card###XXX i % 5 XXX###"
+                  graphics_card_power: "###XXX i * 11 XXX###"
+                  graphics_card_memory: "###XXX i * 13 XXX###"
+                  camera: "###XXX i * 9 XXX###" #camera
+                  battery_type: "Battery###XXX i % 5 XXX###"
+                  operating_system: "system###XXX i % 5 XXX###"
+        references:
+          - name: 'ref_gaming_laptop_location_###XXX i XXX###'
+            type: location_id
+
+- type: repeatable
+  mode: create
+  iterations: 35
+  iteration_counter_starting_value: 0
+  steps:
+    -   type: content
+        mode: create
+        metadata:
+          contentType: "pc"
+          mainTranslation: eng-GB
+          creatorId: 14
+          remoteId: "pc_###XXX i XXX###"
+          alwaysAvailable: true
+          section: 1
+        location:
+          parentLocationRemoteId: ibexa_product_catalog_root
+          locationRemoteId: "pc_location_###XXX i XXX###"
+          hidden: false
+          sortField: 2
+          sortOrder: 0
+          priority: 0
+        fields:
+          -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: "PC ###XXX i XXX###"
+          -
+            fieldDefIdentifier: intro
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 717 % 50 XXX###"
+          -
+            fieldDefIdentifier: description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 11 % 50 XXX###"
+          -
+            fieldDefIdentifier: long_marketing_description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 311 % 50 XXX###"
+          -
+            fieldDefIdentifier: other_long_marketing_description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 987 % 50 XXX###"
+
+          -   fieldDefIdentifier: image
+              languageCode: eng-GB
+              value:
+                destinationContentId: "reference:ref__laptop_image_asset###XXX i * 22 % 10 XXX###"
+                alternativeText: "Text"
+          -   fieldDefIdentifier: product_category
+              languageCode: eng-GB
+              value:
+                taxonomy_entries_identifiers:
+                  - 'pc'
+                taxonomy: product_categories
+          -   fieldDefIdentifier: specification
+              languageCode: eng-GB
+              value:
+                code: "pc_###XXX i XXX###"
+                attributes:
+                  processor: "ProcessorType###XXX i % 5 XXX###"
+                  memory: "###XXX i  + 100 XXX###"
+                  max_memory: "###XXX i  + 200 XXX###"
+                  memory_slots: "###XXX i  % 10 XXX###"
+                  disk_size: "###XXX i  + 1000 XXX###"
+                  additional_drive_possible: "###XXX i % 2 ? true : false XXX###"
+                  optical_drive_available: "###XXX i % 2 == 1 ? true : false XXX###"
+                  graphic_card: "Card###XXX i % 5 XXX###"
+                  graphics_card_power: "###XXX i * 11 XXX###"
+                  graphics_card_memory: "###XXX i * 13 XXX###"
+                  operating_system: "system###XXX i % 5 XXX###"
+        references:
+          - name: 'ref_product_pc_location_###XXX i XXX###'
+            type: location_id
+
+- type: repeatable
+  mode: create
+  iterations: 5
+  iteration_counter_starting_value: 0
+  steps:
+    -   type: content
+        mode: create
+        metadata:
+          contentType: "mouse"
+          mainTranslation: eng-GB
+          creatorId: 14
+          remoteId: "mouse_###XXX i XXX###"
+          alwaysAvailable: true
+          section: 1
+        location:
+          parentLocationRemoteId: ibexa_product_catalog_root
+          locationRemoteId: "mouse_location_###XXX i XXX###"
+          hidden: false
+          sortField: 2
+          sortOrder: 0
+          priority: 0
+        fields:
+          -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: "Mouse ###XXX i XXX###"
+          -
+            fieldDefIdentifier: description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 717 % 50 XXX###"
+
+          -   fieldDefIdentifier: main_image
+              languageCode: eng-GB
+              value:
+                destinationContentId: "reference:ref__mouse_image_asset###XXX i * 77 % 15 XXX###"
+                alternativeText: "Text"
+          -   fieldDefIdentifier: image
+              languageCode: eng-GB
+              value:
+                destinationContentId: "reference:ref__mouse_image_asset###XXX i * 22 % 15 XXX###"
+                alternativeText: "Text"
+          -   fieldDefIdentifier: product_category
+              languageCode: eng-GB
+              value:
+                taxonomy_entries_identifiers:
+                  - 'accessories'
+                taxonomy: product_categories
+          -   fieldDefIdentifier: specification
+              languageCode: eng-GB
+              value:
+                code: "product_code_mouse_###XXX i XXX###"
+                attributes:
+                  mouse_type: "MouseType###XXX i % 2 XXX###"
+                  mouse_has_trackball: "### i % 2 ? true : false ###"
+                  mouse_number_of_buttons: "### i + 100 ###"
+                  mouse_weight: "### (2 * i + 201) / 2 ###"
+                  mouse_width: "### (2 * i + 11) / 2 ###"
+        references:
+          -   name: 'ref_product_mouse_location_###XXX i XXX###'
+              type: location_id
+
+    -   type: product_availability
+        mode: create
+        product_code: "product_code_mouse_###XXX i XXX###"
+        is_available: "### i % 5 < 4 ###"
+        is_infinite: "### i % 5 == 0 ###"
+        stock: "### i % 5 == 0 ? null : i + 100 ###"
+
+    -   type: product_price
+        mode: create
+        product_code: "product_code_mouse_###XXX i XXX###"
+        currency_code: 'EUR'
+        amount: '### 12 + i ###'
+
+    -   type: product_price
+        mode: create
+        product_code: "product_code_mouse_###XXX i XXX###"
+        currency_code: 'USD'
+        amount: '### 10 + i ###'
+
+    -   type: product_price
+        mode: create
+        product_code: "product_code_mouse_###XXX i XXX###"
+        currency_code: 'PLN'
+        amount: '### 360 + i ###'
+            
+- type: repeatable
+  mode: create
+  iterations: 3
+  iteration_counter_starting_value: 0
+  steps:
+    -   type: content
+        mode: create
+        metadata:
+          contentType: "software"
+          mainTranslation: eng-GB
+          creatorId: 14
+          remoteId: "software_###XXX i XXX###"
+          alwaysAvailable: true
+          section: 1
+        location:
+          parentLocationRemoteId: ibexa_product_catalog_root
+          locationRemoteId: "product_virtual_location_###XXX i XXX###"
+          hidden: false
+          sortField: 2
+          sortOrder: 0
+          priority: 0
+        fields:
+          -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: "Software ###XXX i XXX###"
+          -
+            fieldDefIdentifier: description
+            languageCode: eng-GB
+            value: "reference:ref__richtext###XXX i * 716 % 50 XXX###"
+
+          -   fieldDefIdentifier: main_image
+              languageCode: eng-GB
+              value:
+                destinationContentId: "reference:ref__virtual_image_asset###XXX i * 76 % 15 XXX###"
+                alternativeText: "Text"
+          -   fieldDefIdentifier: image
+              languageCode: eng-GB
+              value:
+                destinationContentId: "reference:ref__virtual_image_asset###XXX i * 21 % 15 XXX###"
+                alternativeText: "Text"
+          -   fieldDefIdentifier: product_category
+              languageCode: eng-GB
+              value:
+                taxonomy_entries_identifiers:
+                  - 'software'
+                taxonomy: product_categories
+          -   fieldDefIdentifier: specification
+              languageCode: eng-GB
+              value:
+                code: "software_###XXX i XXX###"
+                attributes:
+                  digital_format: "virtual_format###XXX i % 2  XXX###"
+                  can_be_used_offline: "###XXX i % 2 ? true : false XXX###"
+
+        references:
+          -   name: 'ref_product_virtual_location_###XXX i XXX###'
+              type: location_id
+
+    -   type: product_availability
+        mode: create
+        product_code: "software_###XXX i XXX###"
+        is_available: "### i % 5 < 4 ###"
+        is_infinite: "### i % 5 == 0 ###"
+        stock: "### i % 5 == 0 ? null : i + 100 ###"
+
+    -   type: product_price
+        mode: create
+        product_code: "software_###XXX i XXX###"
+        currency_code: 'EUR'
+        amount: '### 12 + i ###'
+
+    -   type: product_price
+        mode: create
+        product_code: "software_###XXX i XXX###"
+        currency_code: 'USD'
+        amount: '### 10 + i ###'
+
+    -   type: product_price
+        mode: create
+        product_code: "software_###XXX i XXX###"
+        currency_code: 'PLN'
+        amount: '### 360 + i ###'
+-
+  type: reference
+  mode: save
+  filename: references/products.yaml
