@@ -180,9 +180,12 @@ if [ "$add_redis" -eq "1" ]
 fi
 
 echo "Preparing Ibexa personalization data..."
-mkdir -p vendor/ibexa/test-perso/src/bundle/Resources/images
-cp -a $SCRIPT_DIR/test-perso/src/bundle/Resources/images/. vendor/ibexa/test-perso/src/bundle/Resources/images
+
+IMG_DIR=vendor/ibexa/test-perso-3/src/bundle/Resources/images
+mkdir -p $IMG_DIR
+cp -a $SCRIPT_DIR/test-perso/src/bundle/Resources/images/. $IMG_DIR
 cp -a $SCRIPT_DIR/test-perso/src/bundle/Resources/migrations/. src/Migrations/Ibexa/migrations
+
 ddev php bin/console ibexa:migrations:migrate
 
 echo "Done."
