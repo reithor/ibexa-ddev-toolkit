@@ -21,8 +21,12 @@ Project URL will be: https://perso-training.ddev.site/
 
 1.2 Copy `patch patch/personalization.patch` to your project and run `patch -p1 -i patch/personalization.patch`
 
-1.3 Copy subdirectories from `PersoMigrations` to `src/Migrations/Ibexa/` and run `php bin/console ibexa:migrations:migrate`
-
+1.3 Copy subdirectories from `PersoMigrations` to `src/Migrations/Ibexa/` and run:
+```
+php bin/console ibexa:migrations:migrate
+php bin/console ibexa:graphql:generate-schema
+php bin/console cache:clear
+```
 
 ## 2. Make your project 'public'
 
