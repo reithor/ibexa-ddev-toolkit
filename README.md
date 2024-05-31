@@ -34,7 +34,7 @@ Assuming that Ibexa DXP is running on port `8080`:<br>
 Run `ngrok http 8080 --domain [your-fixed-subdomain].ngrok-free.app`
 
 With ddev:<br>
-Run `ddev share --ngrok-args "--domain [your-fixed-subdomain].ngrok-free.app"``
+Run `ddev share --ngrok-args "--domain [your-fixed-subdomain].ngrok-free.app"`
 
 --------------
 
