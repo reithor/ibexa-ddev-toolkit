@@ -38,13 +38,12 @@ Run `ddev share --ngrok-args "--domain [your-fixed-subdomain].ngrok-free.app"`
 
 --------------
 
-## For ddev:
+## For ddev first steps:
 
-### installed on your computer
+### Installation
   (https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/)
 
-### When your are already using Composer:
-(and have `~/.composer/auth.json`)
+### Composer auth : ( `~/.composer/auth.json` should exist)
 ```
 # Add composer auth.json to ddev:
 # mkdir -p ~/.ddev/homeadditions/.composer \
