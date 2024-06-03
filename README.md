@@ -11,7 +11,7 @@
 
 ### When using ddev:
 
-Just run `ddev-dxp-installer.sh /[your-prefered-directory]/perso-training`
+Just run `./ddev-dxp-installer.sh /[your-prefered-directory]/perso-training`
 This will install Ibexa DXP, apply patch and run PersoMigrations.
 Project URL will be: https://perso-training.ddev.site/
 
