@@ -32,7 +32,12 @@ php bin/console cache:clear
 
 ### Use ngrock:
 
--> https://ngrok.com/docs/getting-started/ - Step 1, Step 2 and Step 4(!)
+#### Install Ngrock (https://ngrok.com/docs/getting-started/ - Step 1, Step 2 and Step 4(!)
+
+Step 1: Install -> run install script in linux/mac<br>
+Step 2: Connect your account -> run `ngrok config add-authtoken <TOKEN>`  in linux/mac (Token -> https://dashboard.ngrok.com/get-started/your-authtoken)<br>
+Step 4: Create fixed domain : https://dashboard.ngrok.com/cloud-edge/domains <br>
+
 
 Assuming that Ibexa DXP is running on port `8080`:<br>
 Run `ngrok http 8080 --domain [your-fixed-subdomain].ngrok-free.app`
