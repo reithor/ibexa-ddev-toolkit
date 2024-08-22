@@ -154,11 +154,11 @@ if [ $# -eq 3 ]
 fi
 
 # fallbacks
-release=~4.3
+release=~4.6
 database_type=mariadb
 database_version=10.6
-php_version=8.1
-require_profiler=0
+php_version=8.3
+require_profiler=1
 add_solr=0
 add_varnish=0
 add_redis=0
@@ -207,12 +207,12 @@ database="$database_type:$database_version"
 ddev config --database="$database" --project-type=php --docroot=public --create-docroot --php-version "$php_version"
 ddev start
 
-if [ "$php_version" = "8.3" ]
+if [ "$php_version" = "8.3" && "$release" = "~4.6"]
   then
+    ddev composer create -y ibexa/$1-skeleton:$release
+  else
     ddev composer create -y ibexa/$1-skeleton:$release --no-install
     ddev composer update
-  else
-    ddev composer create -y ibexa/$1-skeleton:$release
 fi
 
 if [ "$require_profiler" = "1" ]
