@@ -33,11 +33,11 @@ __help="
 └─────────────────────────────────────────────────────────────────────┘
 
 # default config
-release: ~4.4       # latest 4.x
+release: ~4.6       # latest 4.x
 database_type=mariadb # db settings
 database_version=10.6
-php_version=8.1     # php
-require_profiler=0  # require symfony/profiler-pack
+php_version=8.3     # php
+require_profiler=1  # require symfony/profiler-pack
 add_solr=0          # add solr search 
 add_varnish=0       # add varnish http cache 
 add_redis=0         # add redis persistence cache 
