@@ -14,7 +14,7 @@ __help="
 ┌─────────────────────────────────────────────────────────────────────┐
 │ Main usage:                                                         │
 │ ddev-dxp-installer.sh <product> <project-directory> <config-file>   │
-│ <product>: content | experience | commerce                          │
+│ <product>: content | headless | experience | commerce               │
 │ <project-directory>: install directory and ddev project id          |
 │ <config-file> (optional) : config options                           |
 │ --> reads settings from default.config                              │
@@ -132,7 +132,7 @@ add_varnish | add_redis | add_elastic | add_solr )
   exit
   ;;
 # initialize
-oss | content | experience | commerce )
+oss | content | headless | experience | commerce )
   if [ $# -eq 1 ]
     then
     echo "+++++ Target Directory Is Required +++++"
@@ -207,11 +207,20 @@ database="$database_type:$database_version"
 ddev config --database="$database" --project-type=php --docroot=public --create-docroot --php-version "$php_version"
 ddev start
 
-if [ "$php_version" = "8.3" && "$release" = "~4.6"]
+flavor=$1
+if [[ "$1" = "headless" ]] && ! [[ "$release" =~ .*"4.6".* ]]; then
+  flavor="content"
+fi
+
+if [[ "$1" = "content" ]] &&  [[ "$release" =~ .*"4.6".* ]]; then
+  flavor="headless"
+fi
+
+if [[ "$php_version" = "8.3" && "$release" = "~4.6" ]]
   then
-    ddev composer create -y ibexa/$1-skeleton:$release
+    ddev composer create -y ibexa/$flavor-skeleton:$release
   else
-    ddev composer create -y ibexa/$1-skeleton:$release --no-install
+    ddev composer create -y ibexa/$flavor-skeleton:$release --no-install
     ddev composer update
 fi
 
@@ -222,7 +231,7 @@ fi
 
 git init; git add . > /dev/null; git commit -m "init" > /dev/null;
 
-dbname=$1
+dbname=$flavor
 if [ "$database_type" = "postgres" ]
 then
     echo "DATABASE_URL=postgresql://db:db@db:5432/$dbname" > .env.local

@@ -13,7 +13,7 @@ It's perfectly what I need for my daily work - and will rarely be changed/improv
 ┌─────────────────────────────────────────────────────────────────────┐
 │ Main usage:                                                         │
 │ ddev-dxp-installer.sh <product> <project-directory> <config-file>   │
-│ <product>: content | experience | commerce                          │
+│ <product>: content | headless | experience | commerce               │
 │ <project-directory>: install directory and ddev project id          |
 │ <config-file> (optional) : config options (see below)               |
 │ --> reads settings from default.config                              │
