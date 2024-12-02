@@ -216,11 +216,12 @@ if [[ "$1" = "content" ]] &&  [[ "$release" =~ .*"4.6".* ]]; then
   flavor="headless"
 fi
 
-if [[ "$php_version" = "8.3" && "$release" = "~4.6" ]]
+ddev composer create -y ibexa/$flavor-skeleton:$release --no-install
+
+if [[ "$php_version" = "8.3" && "$release" =~ .*"4.6".*  ]]
   then
-    ddev composer create -y ibexa/$flavor-skeleton:$release
+    ddev composer install
   else
-    ddev composer create -y ibexa/$flavor-skeleton:$release --no-install
     ddev composer update
 fi
 
