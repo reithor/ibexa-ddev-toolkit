@@ -1,7 +1,14 @@
+### NEW
+
+- Installer can install ~5.0.x-dev and ~4.6.x-dev versions.
+- Shortcuts for version constraints:
+    - _main_ or _5.0_ ==> ~5.0.x-dev
+    - _4.6_ => ~4.6.x-dev
+    - _LTS_, _lts_, _latest_ => latest v4.6.xx 
+
 # ibexa-ddev-toolkit
 
 Kick starter to create a clean Ibexa DXP project using ddev.
-It's perfectly what I need for my daily work - and will rarely be changed/improved in the future.  
 
 ## Install ddev:
 --> https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/
@@ -30,6 +37,8 @@ It's perfectly what I need for my daily work - and will rarely be changed/improv
 │ ../ddev-dxp-installer.sh add_solr                                   │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
+
+
 
 # default config
 release: ~4.6       # latest 4.x
