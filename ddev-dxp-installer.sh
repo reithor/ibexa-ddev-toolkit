@@ -216,13 +216,44 @@ if [[ "$1" = "content" ]] &&  [[ "$release" =~ .*"4.6".* ]]; then
   flavor="headless"
 fi
 
-ddev composer create -y ibexa/$flavor-skeleton:$release --no-install
+# dev versions
+devversion=0
 
-if [[ "$php_version" = "8.3" && "$release" =~ .*"4.6".*  ]]
+case $release in
+# 4.6 branch
+4.6 )
+  release=~4.6.x-dev
+  ;;
+# main / 5.0 branch
+5.0 | main )
+  release=~5.0.x-dev
+  ;;
+latest | lts | LTS )
+  release=~4.6.0
+  ;;
+esac
+
+if [[ "$release" =~ .*"-dev" ]]
   then
-    ddev composer install
+  devversion=1
+fi
+
+
+if [ "$devversion" = 1  ]
+  then
+    ddev composer create ibexa/website-skeleton:$release
+    ddev composer config repositories.ibexa composer https://updates.ibexa.co
+    ddev composer require ibexa/$flavor:$release -W --no-scripts --no-interaction
+    ddev composer recipes:install ibexa/$flavor --force --reset # --no-interaction
+    
   else
-    ddev composer update
+    ddev composer create -y ibexa/$flavor-skeleton:$release --no-install
+    if [[ "$php_version" = "8.3" && "$release" =~ .*"4.6".*  ]]
+      then
+        ddev composer install
+      else
+        ddev composer update
+    fi
 fi
 
 if [ "$require_profiler" = "1" ]
