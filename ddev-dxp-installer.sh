@@ -266,7 +266,7 @@ git init; git add . > /dev/null; git commit -m "init" > /dev/null;
 dbname=$flavor
 if [ "$database_type" = "postgres" ]
 then
-    echo "DATABASE_URL=postgresql://db:db@db:5432/$dbname" > .env.local
+    echo "DATABASE_URL=postgresql://db:db@db:5432/$dbname?charset=utf8" > .env.local
   else
     echo "DATABASE_URL=mysql://root:root@db:3306/$dbname?$serverVersion&charset=utf8mb4" > .env.local
 fi
