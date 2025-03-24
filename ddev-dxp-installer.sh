@@ -244,6 +244,7 @@ if [ "$devversion" = 1  ]
     ddev composer create ibexa/website-skeleton:$release
     ddev composer config repositories.ibexa composer https://updates.ibexa.co
     ddev composer require ibexa/$flavor:$release -W --no-scripts --no-interaction
+    git init; git add . > /dev/null; git commit -m "Installed Ibexa DXP" > /dev/null;
     ddev composer recipes:install ibexa/$flavor --force --reset # --no-interaction
     
   else
@@ -254,14 +255,16 @@ if [ "$devversion" = 1  ]
       else
         ddev composer update
     fi
+    git init; git add . > /dev/null; git commit -m "Installed Ibexa DXP" > /dev/null;
+
 fi
 
 if [ "$require_profiler" = "1" ]
   then
     ddev composer require --dev symfony/profiler-pack
+    git add . > /dev/null; git commit -m "Added profiler-pack" > /dev/null;
 fi
 
-git init; git add . > /dev/null; git commit -m "init" > /dev/null;
 
 dbname=$flavor
 if [ "$database_type" = "postgres" ]
