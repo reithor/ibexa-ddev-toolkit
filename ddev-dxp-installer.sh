@@ -246,6 +246,7 @@ if [ "$devversion" = 1  ]
     ddev composer require ibexa/$flavor:$release -W --no-scripts --no-interaction
     git init; git add . > /dev/null; git commit -m "Installed Ibexa DXP" > /dev/null;
     ddev composer recipes:install ibexa/$flavor --force --reset # --no-interaction
+    ddev composer run post-install-cmd
     
   else
     ddev composer create -y ibexa/$flavor-skeleton:$release --no-install
