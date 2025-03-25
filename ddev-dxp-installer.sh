@@ -246,8 +246,9 @@ if [ "$devversion" = 1  ]
     ddev composer require ibexa/$flavor:$release -W --no-scripts --no-interaction
     git init; git add . > /dev/null; git commit -m "Installed Ibexa DXP" > /dev/null;
     ddev composer recipes:install ibexa/$flavor --force --reset # --no-interaction
+    git add . > /dev/null; git commit -m "recipes:install" > /dev/null;
     ddev composer run post-install-cmd
-    
+
   else
     ddev composer create -y ibexa/$flavor-skeleton:$release --no-install
     if [[ "$php_version" = "8.3" && "$release" =~ .*"4.6".*  ]]
@@ -275,10 +276,18 @@ then
     echo "DATABASE_URL=mysql://root:root@db:3306/$dbname?$serverVersion&charset=utf8mb4" > .env.local
 fi
 
-ddev php bin/console ibexa:install
+
+ddev php bin/console ibexa:install --no-debug --skip-indexing
+# fixes *Field Type 'ibexa_address' not found.* errror during reindex
+# when installing experience or commerce ~4.6.x-dev.
+if [ "$release" = "~4.6.x-dev" ]
+  then
+  ddev php bin/console cache:clear
+fi
+ddev php bin/console ibexa:reindex
+
 ddev php bin/console ibexa:graphql:generate-schema
 ddev composer run post-install-cmd
-
 
 # add components
 if [ "$add_elastic" -eq "1" ] && [ "$1" != "oss" ]
