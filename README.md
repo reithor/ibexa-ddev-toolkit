@@ -4,7 +4,7 @@
 
 ## Needed for the training:
 
-1. Installed Ibexa Experience v4.6.6 with added migrations from `PersoMigrations` directory and applied patch `patch/personalization.patch` 
+1. Installed Ibexa Experience v4.6 with added migrations from `PersoMigrations` directory
 2. Your installation needs a publicly available URL
 
 ## 1. Ibexa Experience v4.6.6 + PersoMigrations
