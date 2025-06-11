@@ -7,7 +7,7 @@
 1. Installed Ibexa Experience v4.6 with added migrations from `PersoMigrations` directory
 2. Your installation needs a publicly available URL
 
-## 1. Ibexa Experience v4.6.6 + PersoMigrations
+## 1. Ibexa Experience v4.6 + PersoMigrations
 
 ### When using ddev:
 
@@ -17,7 +17,7 @@ Project URL will be: https://perso-training.ddev.site/
 
 ### When not using ddev:
 
-1.1 Install Ibexa Experience v4.6.6 
+1.1 Install Ibexa Experience v4.6
 
 1.2 Copy `patch patch/personalization.patch` to your project and run `patch -p1 -i patch/personalization.patch`
 
