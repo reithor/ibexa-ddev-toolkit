@@ -104,7 +104,11 @@ ddev share --ngrok-args "--domain [your-fixed-subdomain].ngrok-free.app"
 #### Setp 5: Run Export 
 
 ```
-ddev php bin/console ibexa:personalization:run-export --siteaccess=site --item-type-identifier-list=article,laptop,mouse,pc,software --customer-id=[your-customer-id] --license-key=[license-key] --languages=eng-GB
+ddev php bin/console ibexa:personalization:run-export --siteaccess=site  \
+   --item-type-identifier-list=article,laptop,mouse,pc,software  \
+   --customer-id=[your-customer-id]  \
+   --license-key=[license-key]  \
+   --languages=eng-GB
 ```
 
 
