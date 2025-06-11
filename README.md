@@ -12,16 +12,14 @@
 ### When using ddev:
 
 Just run `./ddev-dxp-installer.sh /[your-prefered-directory]/perso-training`
-This will install Ibexa DXP, apply patch and run PersoMigrations.
+This will install Ibexa DXP and run PersoMigrations.
 Project URL will be: https://perso-training.ddev.site/
 
 ### When not using ddev:
 
 1.1 Install Ibexa Experience v4.6
 
-1.2 Copy `patch patch/personalization.patch` to your project and run `patch -p1 -i patch/personalization.patch`
-
-1.3 Copy subdirectories from `PersoMigrations` to `src/Migrations/Ibexa/` and run:
+1.2 Copy subdirectories from `PersoMigrations` to `src/Migrations/Ibexa/` and run:
 ```
 php bin/console ibexa:migrations:migrate
 php bin/console ibexa:graphql:generate-schema
