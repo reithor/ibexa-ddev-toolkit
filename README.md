@@ -95,10 +95,10 @@ ibexa:
                         description: 'short_title'
 ```
 
-#### Setp 4: Start Ngrock 
+#### Setp 4: Start Ngrock (if not already done)
 
 ```
-ddev share --ngrok-args "--domain your-domain-name.ngrok-free.app"
+ddev share --ngrok-args "--domain [your-fixed-subdomain].ngrok-free.app"
 ```
 
 #### Setp 5: Run Export 
