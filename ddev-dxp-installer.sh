@@ -123,7 +123,7 @@ esac
 release=~4.6
 database_type=mariadb
 database_version=10.6
-php_version=8.1
+php_version=8.3
 require_profiler=1
 add_solr=0
 add_varnish=0
