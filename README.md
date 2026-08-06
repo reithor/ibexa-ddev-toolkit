@@ -1,56 +1,38 @@
-### NEW
+## Requirements:
 
-- Installer can install ~5.0.x-dev and ~4.6.x-dev versions.
-- Shortcuts for version constraints:
-    - _main_ or _5.0_ ==> ~5.0.x-dev
-    - _4.6_ => ~4.6.x-dev
-    - _LTS_, _lts_, _latest_ => latest v4.6.xx 
-
-# ibexa-ddev-toolkit
-
-Kick starter to create a clean Ibexa DXP project using ddev.
-
-## Install ddev:
+DDEV:
 --> https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/
 
 
-## Main usage:
+## install-ibexa-dxp.sh
+
+Non-Interactive installer for Ibexa DXP
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│ Main usage:                                                         │
-│ ddev-dxp-installer.sh <product> <project-directory> <config-file>   │
-│ <product>: content | headless | experience | commerce               │
-│ <project-directory>: install directory and ddev project id          |
-│ <config-file> (optional) : config options (see below)               |
-│ --> reads settings from default.config                              │
-│ --> asks for confirmation for every single option (list see below)  │
-│ --> creates Ibexa DXP instance running as ddev project              │
-│ --> can be reached at https://<installation-directory>.ddev.site    │
-│                                                                     │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│ Add services to existing instance (run in <project-directory>)      │
-│ ../ddev-dxp-installer.sh add_redis                                  │
-│ ../ddev-dxp-installer.sh add_elastic                                │
-│ ../ddev-dxp-installer.sh add_varnish                                │
-│ ../ddev-dxp-installer.sh add_solr                                   │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
+install-ibexa-dxp.sh [options]
 
+  --edition=oss|headless|experience|commerce   (default: experience)
+  --release=VERSION      Composer constraint, e.g. ~5.0.0, ~5.0.x-dev, 5.0.3
+  --php=VERSION          (default: 8.3; forced/validated per release)
+  --node=VERSION         (default: 22; forced on 5.0.x/6.0.x)
+  --webserver=nginx-fpm|apache-fpm
+  --database=mariadb|mysql|postgres
+  --db-version=VERSION
+  --http-cache=symfony|varnish
+  --app-cache=filesystem|redis|valkey|memcached
+  --search-engine=legacy|elasticsearch|elasticsearch8|solr
+  --sample-data=true|false
+  --profiler=true|false
+  --app-env=dev|prod
+  --cloud=true|false      Provision Ibexa Cloud (Upsun/platform.sh) config
+  --project-name=NAME     Defaults to the current directory name
+  --initial-branch=NAME   (default: main)
+  --force-reinstall       Ignore .ddev/.ibexa-dxp-installed and re-run
+  -h, --help
 
-
-# default config
-release: ~4.6       # latest 4.x
-database_type=mariadb # db settings
-database_version=10.6
-php_version=8.3     # php
-require_profiler=1  # require symfony/profiler-pack
-add_solr=0          # add solr search 
-add_varnish=0       # add varnish http cache 
-add_redis=0         # add redis persistence cache 
-add_elastic=0       # add elastic search
-
+All settings can also be provided as environment variables of the same
+name (DXP_EDITION, PRODUCT_VERSION, PHP_VERSION, ...). Re-running the script
 ```
 
 
+Check https://github.com/reithor/ddev-ibexa-installer for an interactive installer !
