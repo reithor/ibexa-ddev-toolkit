@@ -13,8 +13,10 @@ install-ibexa-dxp.sh [options]
 
   --edition=oss|headless|experience|commerce   (default: experience)
   --release=VERSION      Composer constraint, e.g. ~5.0.0, ~5.0.x-dev, 5.0.3
-  --php=VERSION          (default: 8.3; forced/validated per release)
-  --node=VERSION         (default: 22; forced on 5.0.x/6.0.x)
+  --php=VERSION          (default: 8.3; forced/validated per release;
+                          6.0.x: 8.5, or 8.6 with DDEV >= 1.25.5)
+  --node=VERSION         (default: 22; forced on 5.0.x/6.0.x: 24, or 22
+                          for exact releases 5.0.0 - 5.0.10)
   --webserver=nginx-fpm|apache-fpm
   --database=mariadb|mysql|postgres
   --db-version=VERSION

@@ -48,8 +48,10 @@ Usage: install-ibexa-dxp.sh [options]
 
   --edition=oss|headless|experience|commerce   (default: experience)
   --release=VERSION      Composer constraint, e.g. ~5.0.0, ~5.0.x-dev, 5.0.3
-  --php=VERSION          (default: 8.3; forced/validated per release)
-  --node=VERSION         (default: 22; forced on 5.0.x/6.0.x)
+  --php=VERSION          (default: 8.3; forced/validated per release;
+                          6.0.x: 8.5, or 8.6 with DDEV >= 1.25.5)
+  --node=VERSION         (default: 22; forced on 5.0.x/6.0.x: 24, or 22
+                          for exact releases 5.0.0 - 5.0.10)
   --webserver=nginx-fpm|apache-fpm
   --database=mariadb|mysql|postgres
   --db-version=VERSION
@@ -108,9 +110,8 @@ version_ge() { # version_ge <actual> <required>
 preflight_ddev() {
   command -v ddev >/dev/null 2>&1 || \
     die "DDEV not found. Install it: https://ddev.readthedocs.io/en/stable/users/install/ddev-installation/"
-  local actual
-  actual="$(ddev version -j | jq -r '.raw.version' | sed 's/^v//')"
-  version_ge "$actual" "1.24.3" || die "DDEV $actual found, but >= 1.24.3 is required."
+  DDEV_VERSION="$(ddev version -j | jq -r '.raw.version' | sed 's/^v//')"
+  version_ge "$DDEV_VERSION" "1.24.3" || die "DDEV $DDEV_VERSION found, but >= 1.24.3 is required."
 }
 
 detect_existing_project() {
@@ -235,12 +236,28 @@ product_type_for_edition() {
 force_matrix_values() {
   case "$PRODUCT_BRANCH" in
     4.6) : ;; # PHP 8.3/8.2/8.1 all valid
-    5.0) [ "$PHP_VERSION" = "8.3" ] || [ "$PHP_VERSION" = "8.4" ] || { warn "PHP $PHP_VERSION invalid for 5.0.x, forcing 8.3"; PHP_VERSION="8.3"; } ;;
-    6.0) : ;; # 8.5/8.4/8.3 all valid
+    5.0) [ "$PHP_VERSION" = "8.3" ] || [ "$PHP_VERSION" = "8.4" ] || [ "$PHP_VERSION" = "8.5" ] || { warn "PHP $PHP_VERSION invalid for 5.0.x, forcing 8.3"; PHP_VERSION="8.3"; } ;;
+    6.0)
+      case "$PHP_VERSION" in
+        8.5) : ;;
+        8.6) version_ge "$DDEV_VERSION" "1.25.5" \
+               || die "PHP 8.6 needs DDEV >= 1.25.5 (found $DDEV_VERSION). Upgrade DDEV or use --php=8.5." ;;
+        *)   warn "PHP $PHP_VERSION invalid for 6.0.x, forcing 8.5"; PHP_VERSION="8.5" ;;
+      esac
+      ;;
   esac
-  case "$PRODUCT_BRANCH" in
-    5.0|6.0) [ "$NODE_VERSION" = "22" ] || { warn "Node forced to 22 on $PRODUCT_BRANCH"; NODE_VERSION="22"; } ;;
+  local required_node=""
+  case "$PRODUCT_VERSION" in
+    ~6.0.*|v6.0.*|6.0.*) required_node="24" ;;
+    # Exact tagged releases 5.0.0 - 5.0.10 still work with Node 22
+    v5.0.[0-9]|5.0.[0-9]|v5.0.10|5.0.10) required_node="22" ;;
+    # From 5.0.11 on Node 24 is required (also covers ~5.0.0 and ~5.0.x-dev)
+    *5.0.*) required_node="24" ;;
   esac
+  if [ -n "$required_node" ] && [ "$NODE_VERSION" != "$required_node" ]; then
+    warn "Node forced to $required_node for $PRODUCT_VERSION"
+    NODE_VERSION="$required_node"
+  fi
   case "$DATABASE" in
     mariadb) [ "$PRODUCT_BRANCH" = "5.0" ] && DATABASE_VERSION="10.11" ;;
     mysql)   [ "$PRODUCT_BRANCH" = "5.0" ] && DATABASE_VERSION="8.4" ;;
@@ -330,6 +347,15 @@ EOF
 #ddev-generated
 php_version: "$PHP_VERSION"
 EOF
+  if [ "$PHP_VERSION" = "8.6" ]; then
+    # Many packages do not declare PHP 8.6 support yet - ignore upper PHP
+    # bounds (lower bounds are still enforced).
+    cat >> .ddev/config.php.yaml <<'EOF'
+web_environment:
+    - COMPOSER_IGNORE_PLATFORM_REQ=php+
+EOF
+    log "Composer configured to ignore upper PHP version constraints (COMPOSER_IGNORE_PLATFORM_REQ=php+)"
+  fi
 
   cat > .ddev/config.node.yaml <<EOF
 #ddev-generated
