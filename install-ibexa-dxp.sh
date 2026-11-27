@@ -236,7 +236,7 @@ product_type_for_edition() {
 force_matrix_values() {
   case "$PRODUCT_BRANCH" in
     4.6) : ;; # PHP 8.3/8.2/8.1 all valid
-    5.0) [ "$PHP_VERSION" = "8.3" ] || [ "$PHP_VERSION" = "8.4" ] || { warn "PHP $PHP_VERSION invalid for 5.0.x, forcing 8.3"; PHP_VERSION="8.3"; } ;;
+    5.0) [ "$PHP_VERSION" = "8.3" ] || [ "$PHP_VERSION" = "8.4" ] || [ "$PHP_VERSION" = "8.5" ] || { warn "PHP $PHP_VERSION invalid for 5.0.x, forcing 8.3"; PHP_VERSION="8.3"; } ;;
     6.0)
       case "$PHP_VERSION" in
         8.5) : ;;
